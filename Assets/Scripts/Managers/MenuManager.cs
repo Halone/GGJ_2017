@@ -70,7 +70,12 @@ public class MenuManager: BaseManager<MenuManager> {
         OpenScreen(Credits);
     }
 
-    public void OnClicPlay() {
+	public void OnClicScores()
+	{
+		OpenScreen(Scores);
+	}
+
+	public void OnClicPlay() {
         OpenScreen(Lobby);
     }
 
@@ -85,6 +90,11 @@ public class MenuManager: BaseManager<MenuManager> {
     public void OnClicLeave(int p_PlayerID) {//1 -> 4
         SwitchLobbyPlayer(p_PlayerID - 1, false);
     }
+
+	public void OnClicCloseApp()
+	{
+		Application.Quit();
+	}
 
     private void SwitchLobbyPlayer(int p_PlayerID, bool p_IsJoin) {//0 -> 3
         Transform l_Instruments         = m_PlayerList[p_PlayerID].player.Find("Instruments");

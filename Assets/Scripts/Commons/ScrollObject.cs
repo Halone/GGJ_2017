@@ -18,9 +18,12 @@ public class ScrollObject : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		m_scrollCount = speedOfScroll * Time.deltaTime;
 
-		myRectTransform.localPosition += -myRectTransform.up;
+		if(LevelManager.instance.IsOnPlay)
+		{
+			m_scrollCount = speedOfScroll * Time.deltaTime;
+			myRectTransform.localPosition += -myRectTransform.up;
+		}
 
 		/* Version Rectangle
 		myRectTransform.offsetMin = new Vector2(myRectTransform.offsetMin.x, m_startTop - m_scrollCount);
