@@ -11,6 +11,8 @@ public class InputManager: BaseManager<InputManager> {
 	private List<int>	  m_TouchIDList;
 	private float m_MoveDownLimit;
     private int m_TouchID;
+
+	public LayerMask BuildingsMask;
 	private string WAVE_TAG = "Wave";
 	#endregion
 
@@ -155,14 +157,16 @@ public class InputManager: BaseManager<InputManager> {
 	private void RaycastFromPos(Vector3 lPos)
 	{
 		RaycastHit hit;
-		Ray ray = CameraManager.instance.getActiveCamera.ScreenPointToRay(lPos);
-		if(Physics.Raycast(ray, out hit) && hit.transform.gameObject.tag == WAVE_TAG)
+		Ray rayOut = CameraManager.instance.getActiveCamera.ScreenPointToRay(lPos);
+        if(Physics.Raycast(rayOut, out hit))
 		{
-			DebugLogWarning("JE TOUCHE");
+			Debug.LogWarning("hit.transform.gameObject.tag : " + hit.transform.gameObject.tag);
+			if(hit.transform.gameObject.tag == WAVE_TAG)
+				DebugLogWarning("JE TOUCHE");
 		}
 	}
 
-    private void InputUp() {
+	private void InputUp() {
         
     }
 
