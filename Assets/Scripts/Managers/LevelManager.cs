@@ -74,7 +74,8 @@ public class LevelManager: BaseManager<LevelManager> {
 		{
 			IsOnPlay = false;
 			CurrentTimeGame = 0;
-			//Go Vers Menu des scores
+			CameraManager.instance.SwitchCamera(CameraManager.MENU_CAMERA_NAME);
+			MenuManager.instance.OnClicScores();
 			SetModeVoid();
 			//On réinitialise tout
 		}
