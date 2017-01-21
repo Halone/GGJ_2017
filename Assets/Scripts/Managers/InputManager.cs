@@ -30,6 +30,10 @@ public class InputManager: BaseManager<InputManager> {
     #endregion
 
     #region Input Managment
+    protected override void MainScreen() {
+        SetModeNormal();
+    }
+
     #region DoAction
     void Update() {
         m_DoAction();
@@ -97,8 +101,8 @@ public class InputManager: BaseManager<InputManager> {
 		RaycastHit hit;
 		for(int i = 0; i < Input.touches.Length; i++)
 		{
-			Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
-			if(Physics.Raycast(ray, out hit) && hit.transform.name == "Box")
+			Ray ray = CameraManager.instance.getActiveCamera.ScreenPointToRay(Input.GetTouch(i).position);
+			if(Physics.Raycast(ray, out hit) && hit.transform.gameObject.name == "Box")
 			{
 				DebugLogWarning("JE TOUCHE");
 				print("coucou");

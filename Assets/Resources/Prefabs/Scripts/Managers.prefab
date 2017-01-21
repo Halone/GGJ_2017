@@ -516,8 +516,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012107905698}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.31296718, y: 0.073639, z: -7.6054516}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000014018727184}
@@ -862,10 +862,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065a45581e355434c9865636b2f68270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TitleCard: {fileID: 0}
-  Lobby: {fileID: 0}
-  Score: {fileID: 0}
-  Credits: {fileID: 0}
+  TitleCard: {fileID: 1000013590854468}
+  Lobby: {fileID: 1000013134312820}
+  Score: {fileID: 1367130451941188}
+  Credits: {fileID: 1000012370941030}
 --- !u!114 &114000014063538354
 MonoBehaviour:
   m_ObjectHideFlags: 1
