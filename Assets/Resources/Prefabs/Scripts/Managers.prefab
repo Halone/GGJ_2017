@@ -1965,11 +1965,6 @@ MonoBehaviour:
   Scores: {fileID: 1367130451941188}
   Credits: {fileID: 1000012370941030}
   BTN_Launch: {fileID: 1368971210349004}
-  LobbyPlayerList:
-  - {fileID: 1210558705170008}
-  - {fileID: 1691972782554736}
-  - {fileID: 1856922282710836}
-  - {fileID: 1064429337287416}
 --- !u!114 &114000014063538354
 MonoBehaviour:
   m_ObjectHideFlags: 1
