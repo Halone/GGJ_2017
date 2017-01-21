@@ -11,10 +11,11 @@ public class InputManager: BaseManager<InputManager> {
 	private List<int>	  m_TouchIDList;
 	private float m_MoveDownLimit;
     private int m_TouchID;
-    #endregion
+	private string WAVE_TAG = "Wave";
+	#endregion
 
-    #region Initialisation & Destroy
-    override protected IEnumerator CoroutineStart() {
+	#region Initialisation & Destroy
+	override protected IEnumerator CoroutineStart() {
         SetModeVoid();
         m_MoveDownLimit = 2.0f;
         isReady         = true;
@@ -70,12 +71,13 @@ public class InputManager: BaseManager<InputManager> {
 
     private void SetModeDown() {
         if (GameManager.instance.isTouchDevice) {
-			//DoAction = Raycast -> S'il touche une box -> JOIE
+
 			for(int i = 0; i < Input.touches.Length; i++)
 			{
 				m_DownStartPosList[i] = Input.touches[i].position;
 				m_TouchIDList[i] = Input.touches[i].fingerId;
             }
+
 			//m_DownStartPos  = Input.touches[0].position;
 			//m_TouchID       = Input.touches[0].fingerId;
 			m_DoAction = DoActionDownTouch;
@@ -84,46 +86,45 @@ public class InputManager: BaseManager<InputManager> {
             m_DownStartPos  = Input.mousePosition;
             m_DoAction      = DoActionDown;
         }
+
     }
 
     private void DoActionDown() {
-        if (Input.GetMouseButtonUp(0)) {
+
+		RaycastFromPos(Input.mousePosition);
+
+		if (Input.GetMouseButtonUp(0)) {
             InputUp();
             SetModeNormal();
-        }
-        else if ((m_DownStartPos - Input.mousePosition).magnitude >= m_MoveDownLimit) {
-            SetModeMove();
-        }
-    }
-
-    private void DoActionDownTouch() {
-		//Ici on renvoie en SetModeNormal si plus personne touche
-		RaycastHit hit;
-		for(int i = 0; i < Input.touches.Length; i++)
-		{
-			Ray ray = CameraManager.instance.getActiveCamera.ScreenPointToRay(Input.GetTouch(i).position);
-			if(Physics.Raycast(ray, out hit) && hit.transform.gameObject.name == "Box")
-			{
-				DebugLogWarning("JE TOUCHE");
-				print("coucou");
-				//On recup le num de la box et en fonction du rapprochement de l'input
-				//On donne du score au numberBox
-				//On affiche "Great", "Good" or "Bruh"
-			}
 		}
-		
-
-
-		if (Input.touches.Length == 0 || Input.touches[0].fingerId != m_TouchID) {
-            InputUp();
-            SetModeNormal();
-        }
-        /*else if ((XXX).magnitude >= m_MoveDownLimit) {
+        /*else if ((m_DownStartPos - Input.mousePosition).magnitude >= m_MoveDownLimit) {
             SetModeMove();
         }*/
     }
 
-    private void SetModeMove() {
+    private void DoActionDownTouch() {
+		//Ici on renvoie en SetModeNormal si plus personne touche
+
+		for(int i = 0; i < Input.touches.Length; i++)
+		{
+			RaycastFromPos(Input.GetTouch(i).position);
+        }
+
+		if(Input.touches.Length == 0)
+		{
+			SetModeNormal();
+		}
+
+		/*if (Input.touches.Length == 0 || Input.touches[0].fingerId != m_TouchID) {
+            InputUp();
+            SetModeNormal();
+        }
+        else if ((XXX).magnitude >= m_MoveDownLimit) {
+            SetModeMove();
+        }*/
+	}
+
+	private void SetModeMove() {
         if (GameManager.instance.isTouchDevice) {
             m_DoAction = DoActionMoveTouch;
         }
@@ -150,6 +151,16 @@ public class InputManager: BaseManager<InputManager> {
         }
     }
     #endregion
+
+	private void RaycastFromPos(Vector3 lPos)
+	{
+		RaycastHit hit;
+		Ray ray = CameraManager.instance.getActiveCamera.ScreenPointToRay(lPos);
+		if(Physics.Raycast(ray, out hit) && hit.transform.gameObject.tag == WAVE_TAG)
+		{
+			DebugLogWarning("JE TOUCHE");
+		}
+	}
 
     private void InputUp() {
         
