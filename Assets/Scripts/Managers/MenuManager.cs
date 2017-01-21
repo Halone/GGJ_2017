@@ -7,7 +7,7 @@ public class MenuManager: BaseManager<MenuManager> {
     #region Variables
     private const int PLAYER_MAX = 4;
 
-    private class PlayerInstrument {
+    public class PlayerInstrument {
         public bool isJoin;
         public bool isLock;
         public Transform player;
@@ -21,7 +21,7 @@ public class MenuManager: BaseManager<MenuManager> {
 
     private GameObject m_CurrentScreen;
     private List<bool> m_IsInstrumentTaken;
-    private List<PlayerInstrument> m_PlayerList;
+    public List<PlayerInstrument> m_PlayerList;
     private Dictionary<int, int> m_PlayerInstrumentDictionnary;
 
     public GameObject TitleCard;
