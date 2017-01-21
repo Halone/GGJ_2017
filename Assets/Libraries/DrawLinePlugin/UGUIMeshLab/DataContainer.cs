@@ -35,7 +35,12 @@ public struct LinePoint
         nextCurveOffset = Vector3.zero;
         prvCurveOffset = Vector3.zero;
         nextCurveDivideCount = 10;
+		isFold = false;
         width = 10f;
         angle = 0f;
     }
+
+#if UNITY_EDITOR
+	public bool isFold;
+#endif
 }
