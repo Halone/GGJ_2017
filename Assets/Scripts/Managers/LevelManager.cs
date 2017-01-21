@@ -20,16 +20,11 @@ public class LevelManager: BaseManager<LevelManager> {
     #endregion
 
     #region Level Managment
-    protected override void Play(int p_LevelID) {
-        LoadLevel(p_LevelID);
-    }
-
     private void LoadLevel(int p_LevelID) {
         currentLevelID = p_LevelID;
     }
 
     public void CloseLevel() {
-        MenuManager.instance.OpenSelectionScreen();
         CameraManager.instance.SwitchCamera(CameraManager.MENU_CAMERA_NAME);
         DestroyLevel();
     }

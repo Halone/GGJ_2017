@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
 public class MenuManager: BaseManager<MenuManager> {
     #region Variables
-    public Action<int> onClicLevel;
-    public GameObject MainScreen;
-    public GameObject LevelScreen;
-    public GameObject WinScreen;
+    public GameObject TitleCard;
+    public GameObject Lobby;
+    public GameObject Score;
+    public GameObject Credits;
 
     private GameObject m_CurrentScreen;
     #endregion
@@ -21,39 +20,16 @@ public class MenuManager: BaseManager<MenuManager> {
     #endregion
 
     #region Interface Managment
-    protected override void Menu() {
-        OpenScreen(MainScreen);
+    protected override void MainScreen() {
+        OpenScreen(TitleCard);
     }
 
-    protected override void Play(int p_LevelID) {
-        CloseCurrentScreen();
+    public void OnClicCredits() {
+        OpenScreen(Credits);
     }
 
-    public void OnClickPlay() {
-        OpenScreen(LevelScreen);
-    }
-
-    public void OnClickLoadLevel(int p_LevelID) {
-        if (onClicLevel != null) onClicLevel(p_LevelID);
-    }
-
-    public void ShowWinMenu() {
-        HUDManager.instance.SwitchHUD(false);
-        OpenScreen(WinScreen);
-        CameraManager.instance.SwitchCamera(CameraManager.MENU_CAMERA_NAME);
-    }
-
-    public void OpenSelectionScreen() {
-        OpenScreen(LevelScreen);
-    }
-
-    public void OnClickCloseWinScreen() {
-        OpenSelectionScreen();
-        LevelManager.instance.DestroyLevel();
-    }
-
-    private void CloseCurrentScreen() {
-        if (m_CurrentScreen != null) m_CurrentScreen.SetActive(false);
+    public void OnClicTitleCard() {
+        OpenScreen(TitleCard);
     }
 
     private void OpenScreen(GameObject p_ScreenToOpen) {
@@ -61,6 +37,9 @@ public class MenuManager: BaseManager<MenuManager> {
         p_ScreenToOpen.SetActive(true);
         m_CurrentScreen = p_ScreenToOpen;
     }
+
+    private void CloseCurrentScreen() {
+        if (m_CurrentScreen != null) m_CurrentScreen.SetActive(false);
+    }
     #endregion
 }
-//TODO: refacto

@@ -15,10 +15,6 @@ public class HUDManager: BaseManager<HUDManager> {
     #endregion
 
     #region HUD Managment
-    protected override void Play(int p_LevelID) {
-        SwitchHUD(true);
-    }
-
     public void SwitchHUD(bool p_SetActive) {
         Hud.SetActive(p_SetActive);
     }

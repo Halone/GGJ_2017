@@ -170,11 +170,7 @@ public class SoundsManager: BaseManager<SoundsManager>{
 	}*/
     #endregion
 
-    protected override void Play(int p_LevelID) {
-        
-    }
-
-    protected override void Menu() {
+    protected override void MainScreen() {
         PlayMusic(MENU_MUSIC_NAME);
     }
 }

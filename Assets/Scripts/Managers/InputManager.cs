@@ -30,10 +30,6 @@ public class InputManager: BaseManager<InputManager> {
     #endregion
 
     #region Input Managment
-    protected override void Play(int p_LevelID) {
-        SetModeNormal();
-    }
-
     #region DoAction
     void Update() {
         m_DoAction();
