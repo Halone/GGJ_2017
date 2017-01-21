@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  SourceProjectPath: Assets/Resources/Sounds/Concerto/Concerto.fspro
-  SourceBankPath: Assets/Resources/Sounds/Concerto/Build
+  SourceProjectPath: Assets\Resources\Sounds\Concerto\Concerto.fspro
+  SourceBankPath: Assets\Resources\Sounds\Concerto\Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
