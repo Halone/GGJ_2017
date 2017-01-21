@@ -28,6 +28,10 @@ public class MenuManager: BaseManager<MenuManager> {
         OpenScreen(Credits);
     }
 
+    public void OnClicPlay() {
+        OpenScreen(Lobby);
+    }
+
     public void OnClicTitleCard() {
         OpenScreen(TitleCard);
     }
