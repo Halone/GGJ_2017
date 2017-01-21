@@ -12,6 +12,7 @@ public struct LinePoint
     public Vector2 nextCurveOffset;
     public bool isPrvCurve;
     public Vector2 prvCurveOffset;
+    public bool isFold;
 
     public Vector2 nextCurvePoint
     {
@@ -39,16 +40,4 @@ public struct LinePoint
         angle = 0f;
         isFold = false;
     }
-
-#if UNITY_EDITOR
-
-    /// <summary>
-
-    /// 이 값은 에디팅에만 필요하고 게임에는 필요 없지만 방법이 없어서 그냥 넣어둠...
-
-    /// </summary>
-
-    public bool isFold;
-
-#endif
 }
