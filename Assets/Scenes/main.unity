@@ -91,11 +91,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!224 &425040519 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224000013627228088, guid: acd96b0045f46d347bdbc57f07f20f52,
-    type: 2}
-  m_PrefabInternal: {fileID: 1712519510}
 --- !u!1 &859152612
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,48 +216,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1378119158
+--- !u!1 &2067133649
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 1378119159}
-  - component: {fileID: 1378119162}
-  - component: {fileID: 1378119161}
-  - component: {fileID: 1378119160}
+  - component: {fileID: 2067133653}
+  - component: {fileID: 2067133652}
+  - component: {fileID: 2067133651}
+  - component: {fileID: 2067133650}
   m_Layer: 5
   m_Name: MeshLine
   m_TagString: Wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1378119159
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1378119158}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_Children: []
-  m_Father: {fileID: 425040519}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.4999924, y: 149.70001}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!64 &1378119160
+  m_IsActive: 0
+--- !u!64 &2067133650
 MeshCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1378119158}
+  m_GameObject: {fileID: 2067133649}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -271,12 +248,12 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
---- !u!114 &1378119161
+--- !u!114 &2067133651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1378119158}
+  m_GameObject: {fileID: 2067133649}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 818c798a2e0c263478b70b95b16636c7, type: 3}
@@ -296,19 +273,19 @@ MonoBehaviour:
     nextCurveOffset: {x: 0, y: 0}
     isPrvCurve: 0
     prvCurveOffset: {x: 0, y: 0}
+    isFold: 0
     nextCurveDivideCount: 10
     width: 0
     angle: 0
-    isFold: 0
   - point: {x: 50.085403, y: 40.11612}
     isNextCurve: 0
     nextCurveOffset: {x: 0, y: 0}
     isPrvCurve: 1
-    prvCurveOffset: {x: -104.22545, y: 9.573845}
+    prvCurveOffset: {x: -79.10132, y: -19.795296}
+    isFold: 0
     nextCurveDivideCount: 10
     width: 0
     angle: 0
-    isFold: 0
   m_width: 10
   eachWidth: 0
   useRayCastFilter: 0
@@ -364,13 +341,31 @@ MonoBehaviour:
   roundEdge: 0
   roundEdgePolygonCount: 5
   m_lengthRatio: 1
---- !u!222 &1378119162
+--- !u!222 &2067133652
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1378119158}
---- !u!1001 &1712519510
+  m_GameObject: {fileID: 2067133649}
+--- !u!224 &2067133653
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2067133649}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 92.39455}
+  m_LocalScale: {x: 0.36599067, y: 0.36599067, z: 0.36599067}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 10.097334, y: -184.27568}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &2087183776
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
