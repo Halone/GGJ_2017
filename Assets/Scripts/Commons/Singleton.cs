@@ -37,7 +37,7 @@ public abstract class Singleton<T>: MonoBehaviour where T: Component {
         Debug.LogError(name + " throw an error: " + p_String);
     }
 
-    protected void DebugLog(string p_String) {
-        Debug.Log(name + " say: " + p_String);
+    protected void DebugLogWarning(string p_String) {
+        Debug.LogWarning(name + " say: " + p_String);
     }
 }
