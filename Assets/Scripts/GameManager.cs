@@ -37,7 +37,7 @@ public class GameManager: Singleton<GameManager> {
         }
 
         MenuManager.instance.onClicLevel += Play;
-        isTouchDevice   = false;
+        isTouchDevice   = true;
         isReady         = true;
 
         Menu();

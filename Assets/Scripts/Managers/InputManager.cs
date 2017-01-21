@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class InputManager: BaseManager<InputManager> {
     #region Variables
     private DoAction m_DoAction;
     private RaycastHit targetTouch;
     private Vector3 m_DownStartPos;
-    private float m_MoveDownLimit;
+	private List<Vector3> m_DownStartPosList;
+	private List<int>	  m_TouchIDList;
+	private float m_MoveDownLimit;
     private int m_TouchID;
     #endregion
 
@@ -67,9 +70,15 @@ public class InputManager: BaseManager<InputManager> {
 
     private void SetModeDown() {
         if (GameManager.instance.isTouchDevice) {
-            m_DownStartPos  = Input.touches[0].position;
-            m_DoAction      = DoActionDownTouch;
-            m_TouchID       = Input.touches[0].fingerId;
+			//DoAction = Raycast -> S'il touche une box -> JOIE
+			for(int i = 0; i < Input.touches.Length; i++)
+			{
+				m_DownStartPosList[i] = Input.touches[i].position;
+				m_TouchIDList[i] = Input.touches[i].fingerId;
+            }
+			//m_DownStartPos  = Input.touches[0].position;
+			//m_TouchID       = Input.touches[0].fingerId;
+			m_DoAction = DoActionDownTouch;
         }
         else {
             m_DownStartPos  = Input.mousePosition;
@@ -88,7 +97,23 @@ public class InputManager: BaseManager<InputManager> {
     }
 
     private void DoActionDownTouch() {
-        if (Input.touches.Length == 0 || Input.touches[0].fingerId != m_TouchID) {
+		//Ici on renvoie en SetModeNormal si plus personne touche
+		RaycastHit hit;
+		for(int i = 0; i < Input.touches.Length; i++)
+		{
+			Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
+			if(Physics.Raycast(ray, out hit) && hit.transform.name == "Box")
+			{
+				DebugLog("JE TOUCHE");
+				//On recup le num de la box et en fonction du rapprochement de l'input
+				//On donne du score au numberBox
+				//On affiche "Great", "Good" or "Bruh"
+			}
+		}
+		
+
+
+		if (Input.touches.Length == 0 || Input.touches[0].fingerId != m_TouchID) {
             InputUp();
             SetModeNormal();
         }
@@ -130,7 +155,7 @@ public class InputManager: BaseManager<InputManager> {
     }
 
     private void Scrolling(Vector3 p_DownPos) {
-        
+		DebugLog("scrollscroll");
     }
     #endregion
 }
