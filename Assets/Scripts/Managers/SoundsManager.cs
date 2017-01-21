@@ -171,6 +171,6 @@ public class SoundsManager: BaseManager<SoundsManager>{
     #endregion
 
     protected override void MainScreen() {
-        PlayMusic(MENU_MUSIC_NAME);
+        
     }
 }
