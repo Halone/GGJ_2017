@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class GameManager: Singleton<GameManager> {
     #region Variables
     public Action onMainScreen;
+    public Action<Dictionary<int, int>> onPlayGame;
 
     public bool isTouchDevice {
         get;
@@ -34,7 +36,8 @@ public class GameManager: Singleton<GameManager> {
         ) {
             yield return false;
         }
-        
+
+        MenuManager.instance.onLaunchGame += PlayGame;
         isTouchDevice   = false;
         isReady         = true;
 
@@ -43,8 +46,12 @@ public class GameManager: Singleton<GameManager> {
     #endregion
 
     #region GameStates Managment
-    void MainScreen() {
+    private void MainScreen() {
         if (onMainScreen != null) onMainScreen();
+    }
+
+    private void PlayGame(Dictionary<int, int> p_PlayerInstrumentDictionnary) {
+        if (onPlayGame != null) onPlayGame(p_PlayerInstrumentDictionnary);
     }
     #endregion
 }
