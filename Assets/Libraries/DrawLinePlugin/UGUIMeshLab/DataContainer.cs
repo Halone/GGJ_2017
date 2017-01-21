@@ -37,5 +37,18 @@ public struct LinePoint
         nextCurveDivideCount = 10;
         width = 10f;
         angle = 0f;
+        isFold = false;
     }
+
+#if UNITY_EDITOR
+
+    /// <summary>
+
+    /// 이 값은 에디팅에만 필요하고 게임에는 필요 없지만 방법이 없어서 그냥 넣어둠...
+
+    /// </summary>
+
+    public bool isFold;
+
+#endif
 }
