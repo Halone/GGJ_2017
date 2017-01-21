@@ -6,6 +6,12 @@ public class LevelManager: BaseManager<LevelManager> {
     #region Variables
     public Action onDestroyLevel;
 
+	public bool IsOnPlay;
+
+	//A Remplacer par la durée de la musique !!! /!\
+	public float GameDuration = 10;
+	public float CurrentTimeGame = 0;
+
 	DoAction doAction;
     
     public int currentLevelID {
@@ -42,18 +48,43 @@ public class LevelManager: BaseManager<LevelManager> {
 		SetModeNormal();
 	}
 
+	protected override void Start()
+	{
+		base.Start();
+		SetModeVoid();
+	}
+
+	void Update()
+	{
+		doAction();
+	}
+
 	private void DoActionVoid()
 	{
-
 	}
 
 	private void DoActionNormal()
 	{
-		//Euh ScrollObj ?
+		//Ici on check l'exit + le temps de scroll
+		if(CurrentTimeGame < GameDuration)
+		{
+			CurrentTimeGame++;
+		}
+		else
+		{
+			IsOnPlay = false;
+			CurrentTimeGame = 0;
+			//Go Vers Menu des scores
+			SetModeVoid();
+			//On réinitialise tout
+		}
+		
 	}
 
 	public void SetModeNormal()
 	{
+		IsOnPlay = true;
+		DebugLogWarning("fhoerhforef");
 		doAction = DoActionNormal;
 	}
 
