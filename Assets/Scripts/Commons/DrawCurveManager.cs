@@ -7,10 +7,62 @@ public class DrawCurveManager : MonoBehaviour {
 
 	public List<PointMesh> PointList = new List<PointMesh>();
 
-	public GameObject Panel;
+	public GameObject LinesParent;
+	public GameObject PrefabLine;
+	public GameObject PrefabCircle;
+
+	public GameObject lLine;
+	public UIMeshLine lMeshline;
+
+	private bool StateInLine;
 
 	// Use this for initialization
 	void Start () {
+		Init();
+
+		for(var j = 0; j < PointList.Count; j++)
+		{
+			if(PointList[j].IsMain && !StateInLine)
+			{
+				//Start de line
+				lLine = Instantiate(PrefabLine, LinesParent.transform);
+				lMeshline = lLine.GetComponent<UIMeshLine>();
+				AddPointInMeshLine(j, false);
+				StateInLine = true;
+			}
+			else if(!PointList[j].IsMain && !StateInLine)
+			{
+				// Solo click
+				GameObject lObject = Instantiate(PrefabCircle, LinesParent.transform);
+				lObject.transform.position = PointList[j].Position;
+
+			}
+			else if(!PointList[j].IsMain && StateInLine)
+			{
+				// Point dans ligne
+				AddPointInMeshLine(j, true);
+			}
+			else if(PointList[j].IsMain && StateInLine)
+			{
+				//Fin de line
+				AddPointInMeshLine(j, true);
+				StateInLine = false;
+			}
+		}
+	}
+
+	public void AddPointInMeshLine(int pIndex, bool lCurvePoint)
+	{
+		LinePoint lLinePoint = new LinePoint(PointList[pIndex].Position);
+		if(pIndex != 0 && lCurvePoint)
+		{
+			lLinePoint.isPrvCurve = true;
+			lLinePoint.prvCurvePoint = PointList[pIndex].Position - (PointList[pIndex].Position - PointList[pIndex - 1].Position) / 2;
+		}
+		lMeshline.AddPoint(lLinePoint);
+	}
+
+	public void Init() {
 		for(var i = 0; i < transform.childCount; i++)
 		{
 			PointMesh lPointMesh = transform.GetChild(i).GetComponent<PointMesh>();
@@ -20,18 +72,6 @@ public class DrawCurveManager : MonoBehaviour {
 			PointList.Add(transform.GetChild(i).GetComponent<PointMesh>());
 		}
 		PointList.Sort(SortByY);
-
-		var line = Panel.GetComponent<UIMeshLine>();
-		for(var j = 0; j < PointList.Count; j++)
-		{
-			LinePoint lLinePoint = new LinePoint(PointList[j].Position);
-			line.AddPoint(new LinePoint(PointList[j].Position));
-			if (j + 1 < PointList.Count)
-			{
-				lLinePoint = new LinePoint(PointList[j].Position + (PointList[j+1].Position - PointList[j].Position) / 2);
-				lLinePoint.isPrvCurve = true;
-			}
-		}
 	}
 	
 	// Update is called once per frame
