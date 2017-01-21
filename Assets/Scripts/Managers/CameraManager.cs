@@ -44,7 +44,12 @@ public class CameraManager: BaseManager<CameraManager> {
         SwitchCamera(MENU_CAMERA_NAME);
     }
 
-    public void SwitchCamera(string p_CameraToActive) {
+	protected override void PlayGame(Dictionary<int, int> p_PlayerInstrumentDictionnary)
+	{
+		SwitchCamera(LEVEL_CAMERA_NAME);
+	}
+
+	public void SwitchCamera(string p_CameraToActive) {
         if (m_CameraList.ContainsKey(p_CameraToActive)) {
             getActiveCamera.gameObject.SetActive(false);
             m_CameraList[p_CameraToActive].gameObject.SetActive(true);
