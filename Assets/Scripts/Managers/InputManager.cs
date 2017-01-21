@@ -104,7 +104,8 @@ public class InputManager: BaseManager<InputManager> {
 			Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
 			if(Physics.Raycast(ray, out hit) && hit.transform.name == "Box")
 			{
-				DebugLog("JE TOUCHE");
+				DebugLogWarning("JE TOUCHE");
+				print("coucou");
 				//On recup le num de la box et en fonction du rapprochement de l'input
 				//On donne du score au numberBox
 				//On affiche "Great", "Good" or "Bruh"
@@ -155,7 +156,7 @@ public class InputManager: BaseManager<InputManager> {
     }
 
     private void Scrolling(Vector3 p_DownPos) {
-		DebugLog("scrollscroll");
+		DebugLogWarning("scrollscroll");
     }
     #endregion
 }

@@ -40,7 +40,8 @@ public class GameManager: Singleton<GameManager> {
         isTouchDevice   = true;
         isReady         = true;
 
-        Menu();
+		// Menu();
+		Play(0);
     }
     #endregion
 
