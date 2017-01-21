@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LevelManager: BaseManager<LevelManager> {
     #region Variables
     public Action onDestroyLevel;
+
+	DoAction doAction;
     
     public int currentLevelID {
         get;
@@ -32,6 +35,32 @@ public class LevelManager: BaseManager<LevelManager> {
     public void DestroyLevel() {
         if (onDestroyLevel != null) onDestroyLevel();
     }
-    #endregion
+
+	protected override void PlayGame(Dictionary<int, int> p_PlayerInstrumentDictionnary)
+	{
+		base.PlayGame(p_PlayerInstrumentDictionnary);
+		SetModeNormal();
+	}
+
+	private void DoActionVoid()
+	{
+
+	}
+
+	private void DoActionNormal()
+	{
+		//Euh ScrollObj ?
+	}
+
+	public void SetModeNormal()
+	{
+		doAction = DoActionNormal;
+	}
+
+	public void SetModeVoid()
+	{
+		doAction = DoActionVoid;
+	}
+	#endregion
 }
 //TODO: refacto (CloseLevel) en event
