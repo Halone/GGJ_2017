@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MenuManager: BaseManager<MenuManager> {
     #region Variables
     public GameObject TitleCard;
     public GameObject Lobby;
-    public GameObject Score;
+    public GameObject Scores;
     public GameObject Credits;
+    public List<GameObject> LobbyPlayerList;
 
     private GameObject m_CurrentScreen;
     #endregion
@@ -34,6 +36,10 @@ public class MenuManager: BaseManager<MenuManager> {
 
     public void OnClicTitleCard() {
         OpenScreen(TitleCard);
+    }
+
+    public void OnClicJoin(int p_PlayerID) {
+
     }
 
     private void OpenScreen(GameObject p_ScreenToOpen) {

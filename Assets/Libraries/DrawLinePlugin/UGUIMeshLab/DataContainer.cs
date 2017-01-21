@@ -12,6 +12,7 @@ public struct LinePoint
     public Vector2 nextCurveOffset;
     public bool isPrvCurve;
     public Vector2 prvCurveOffset;
+    public bool isFold;
 
     public Vector2 nextCurvePoint
     {
@@ -38,6 +39,7 @@ public struct LinePoint
 		isFold = false;
         width = 10f;
         angle = 0f;
+        isFold = false;
     }
 
 #if UNITY_EDITOR
