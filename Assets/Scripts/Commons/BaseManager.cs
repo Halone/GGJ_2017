@@ -4,8 +4,7 @@ public abstract class BaseManager<T>: Singleton<T> where T: Component {
     #region Initialisation & Destroy
     protected override void Start() {
         if (GameManager.instance) {
-            GameManager.instance.onMenu += Menu;
-            GameManager.instance.onPlay += Play;
+            GameManager.instance.onMainScreen += MainScreen;
         }
         else DebugError("GameManager does not exist");
 
@@ -14,8 +13,7 @@ public abstract class BaseManager<T>: Singleton<T> where T: Component {
 
     protected override void Destroy() {
         if (GameManager.instance) {
-            GameManager.instance.onMenu -= Menu;
-            GameManager.instance.onPlay -= Play;
+            GameManager.instance.onMainScreen   -= MainScreen;
         }
 
         base.Destroy();
@@ -23,11 +21,7 @@ public abstract class BaseManager<T>: Singleton<T> where T: Component {
     #endregion
 
     #region Game Events
-    protected virtual void Play(int p_LevelID) {
-        
-    }
-
-    protected virtual void Menu() {
+    protected virtual void MainScreen() {
 
     }
     #endregion

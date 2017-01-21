@@ -3,8 +3,7 @@ using System;
 
 public class GameManager: Singleton<GameManager> {
     #region Variables
-    public Action<int> onPlay;
-    public Action onMenu;
+    public Action onMainScreen;
 
     public bool isTouchDevice {
         get;
@@ -35,22 +34,17 @@ public class GameManager: Singleton<GameManager> {
         ) {
             yield return false;
         }
-
-        MenuManager.instance.onClicLevel += Play;
+        
         isTouchDevice   = false;
         isReady         = true;
 
-        Menu();
+        MainScreen();
     }
     #endregion
 
     #region GameStates Managment
-    void Menu() {
-        if (onMenu != null) onMenu();
-    }
-    
-    void Play(int p_LevelID) {
-        if (onPlay != null) onPlay(p_LevelID);
+    void MainScreen() {
+        if (onMainScreen != null) onMainScreen();
     }
     #endregion
 }

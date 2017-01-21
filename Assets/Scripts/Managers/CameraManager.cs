@@ -40,11 +40,7 @@ public class CameraManager: BaseManager<CameraManager> {
     #endregion
 
     #region Camera Managment
-    protected override void Play(int p_LevelID) {
-        SwitchCamera(LEVEL_CAMERA_NAME);
-    }
-
-    protected override void Menu() {
+    protected override void MainScreen() {
         SwitchCamera(MENU_CAMERA_NAME);
     }
 

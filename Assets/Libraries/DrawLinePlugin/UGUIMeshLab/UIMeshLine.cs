@@ -9,8 +9,17 @@ using System.Linq;
 //When I wrote this, only God and I understood what I was doing
 //Now, God only knows
 
-public class UIMeshLine : MaskableGraphic, IMeshModifier, ICanvasRaycastFilter
-{
+public class UIMeshLine : MaskableGraphic, IMeshModifier, ICanvasRaycastFilter {
+    #region MOI
+    private MeshCollider l_Collider;
+
+    private void DrawMesh(Mesh p_mesh) {
+        l_Collider = gameObject.GetComponent<MeshCollider>();
+        if (l_Collider == null) l_Collider = gameObject.AddComponent<MeshCollider>();
+        l_Collider.sharedMesh = p_mesh;
+    }
+    #endregion
+
     [SerializeField]
     List<LinePoint> m_points = new List<LinePoint>();
 
@@ -70,6 +79,7 @@ public class UIMeshLine : MaskableGraphic, IMeshModifier, ICanvasRaycastFilter
         {
             EditMesh(vh);
             vh.FillMesh(mesh);
+            DrawMesh(mesh);
         }
     }
 

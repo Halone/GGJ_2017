@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class InputManager: BaseManager<InputManager> {
     #region Variables
     private DoAction m_DoAction;
     private RaycastHit targetTouch;
     private Vector3 m_DownStartPos;
-    private float m_MoveDownLimit;
+	private List<Vector3> m_DownStartPosList;
+	private List<int>	  m_TouchIDList;
+	private float m_MoveDownLimit;
     private int m_TouchID;
-    #endregion
+	private string WAVE_TAG = "Wave";
+	#endregion
 
-    #region Initialisation & Destroy
-    override protected IEnumerator CoroutineStart() {
+	#region Initialisation & Destroy
+	override protected IEnumerator CoroutineStart() {
         SetModeVoid();
         m_MoveDownLimit = 2.0f;
         isReady         = true;
@@ -27,7 +31,7 @@ public class InputManager: BaseManager<InputManager> {
     #endregion
 
     #region Input Managment
-    protected override void Play(int p_LevelID) {
+    protected override void MainScreen() {
         SetModeNormal();
     }
 
@@ -67,37 +71,60 @@ public class InputManager: BaseManager<InputManager> {
 
     private void SetModeDown() {
         if (GameManager.instance.isTouchDevice) {
-            m_DownStartPos  = Input.touches[0].position;
-            m_DoAction      = DoActionDownTouch;
-            m_TouchID       = Input.touches[0].fingerId;
+
+			for(int i = 0; i < Input.touches.Length; i++)
+			{
+				m_DownStartPosList[i] = Input.touches[i].position;
+				m_TouchIDList[i] = Input.touches[i].fingerId;
+            }
+
+			//m_DownStartPos  = Input.touches[0].position;
+			//m_TouchID       = Input.touches[0].fingerId;
+			m_DoAction = DoActionDownTouch;
         }
         else {
             m_DownStartPos  = Input.mousePosition;
             m_DoAction      = DoActionDown;
         }
+
     }
 
     private void DoActionDown() {
-        if (Input.GetMouseButtonUp(0)) {
-            InputUp();
-            SetModeNormal();
-        }
-        else if ((m_DownStartPos - Input.mousePosition).magnitude >= m_MoveDownLimit) {
-            SetModeMove();
-        }
-    }
 
-    private void DoActionDownTouch() {
-        if (Input.touches.Length == 0 || Input.touches[0].fingerId != m_TouchID) {
+		RaycastFromPos(Input.mousePosition);
+
+		if (Input.GetMouseButtonUp(0)) {
             InputUp();
             SetModeNormal();
-        }
-        /*else if ((XXX).magnitude >= m_MoveDownLimit) {
+		}
+        /*else if ((m_DownStartPos - Input.mousePosition).magnitude >= m_MoveDownLimit) {
             SetModeMove();
         }*/
     }
 
-    private void SetModeMove() {
+    private void DoActionDownTouch() {
+		//Ici on renvoie en SetModeNormal si plus personne touche
+
+		for(int i = 0; i < Input.touches.Length; i++)
+		{
+			RaycastFromPos(Input.GetTouch(i).position);
+        }
+
+		if(Input.touches.Length == 0)
+		{
+			SetModeNormal();
+		}
+
+		/*if (Input.touches.Length == 0 || Input.touches[0].fingerId != m_TouchID) {
+            InputUp();
+            SetModeNormal();
+        }
+        else if ((XXX).magnitude >= m_MoveDownLimit) {
+            SetModeMove();
+        }*/
+	}
+
+	private void SetModeMove() {
         if (GameManager.instance.isTouchDevice) {
             m_DoAction = DoActionMoveTouch;
         }
@@ -125,12 +152,22 @@ public class InputManager: BaseManager<InputManager> {
     }
     #endregion
 
+	private void RaycastFromPos(Vector3 lPos)
+	{
+		RaycastHit hit;
+		Ray ray = CameraManager.instance.getActiveCamera.ScreenPointToRay(lPos);
+		if(Physics.Raycast(ray, out hit) && hit.transform.gameObject.tag == WAVE_TAG)
+		{
+			DebugLogWarning("JE TOUCHE");
+		}
+	}
+
     private void InputUp() {
         
     }
 
     private void Scrolling(Vector3 p_DownPos) {
-        
+		DebugLogWarning("scrollscroll");
     }
     #endregion
 }
