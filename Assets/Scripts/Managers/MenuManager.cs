@@ -5,7 +5,9 @@ using System;
 
 public class MenuManager: BaseManager<MenuManager> {
     #region Variables
-    private const int PLAYER_MAX = 4;
+    private const int PLAYER_MAX        = 4;
+    private const int SHAKE_POWER       = 5;
+    private const int SHAKE_DURATION    = 120;
 
     private class PlayerInstrument {
         public bool isJoin;
@@ -66,7 +68,19 @@ public class MenuManager: BaseManager<MenuManager> {
         
     }
 
+    private IEnumerator CoroutineShake(GameObject p_Button, GameObject p_ScreenToOpen) {
+        int l_Timer = 0;
+
+        while (l_Timer++ < SHAKE_DURATION) {
+            p_Button.transform.localPosition = UnityEngine.Random.insideUnitCircle * SHAKE_POWER;
+            yield return false;
+        }
+
+        OpenScreen(p_ScreenToOpen);
+    }
+
     public void OnClicCredits() {
+        //StartCoroutine(CoroutineShake(TitleCard.transform.Find("BTN_Credits").gameObject, Credits));
         OpenScreen(Credits);
     }
 
