@@ -85,7 +85,6 @@ public class LevelManager: BaseManager<LevelManager> {
 	public void SetModeNormal()
 	{
 		IsOnPlay = true;
-		DebugLogWarning("fhoerhforef");
 		doAction = DoActionNormal;
 	}
 
