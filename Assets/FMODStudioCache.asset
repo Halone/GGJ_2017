@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 114722253012798762}
+  - {fileID: 114566976308553856}
+  EditorEvents:
+  - {fileID: 114122804497293152}
+  MasterBankRef: {fileID: 114566976308553856}
+  StringsBankRef: {fileID: 114722253012798762}
+  stringsBankWriteTime: 636206063200000000
+  cacheVersion: 2
+--- !u!114 &114122804497293152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music
+  guid: 268d7bd8f04f5e418171fc0b2ef04e81
+  Banks:
+  - {fileID: 114566976308553856}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+--- !u!114 &114566976308553856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: /Users/Aristide1/GGJ_2017/Assets/Resources/Sounds/Concerto/Build/Desktop/Master
+    Bank.bank
+  lastModified: 636206063200000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 5714528
+  - Name: Mobile
+    Value: 15896096
+  Exists: 1
+--- !u!114 &114722253012798762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: Assets/Resources/Sounds/Concerto/Build/Desktop/Master Bank.strings.bank
+  lastModified: 636206063200000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 670
+  - Name: Mobile
+    Value: 670
+  Exists: 1
