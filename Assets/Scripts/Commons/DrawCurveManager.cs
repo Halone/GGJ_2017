@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//[ExecuteInEditMode]
+[ExecuteInEditMode]
 public class DrawCurveManager : MonoBehaviour {
 
 	public List<PointMesh> PointList = new List<PointMesh>();
@@ -18,6 +18,8 @@ public class DrawCurveManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if(PointList.Count > 0)
+			return;
 		Init();
 
 		for(var j = 0; j < PointList.Count; j++)
@@ -65,6 +67,7 @@ public class DrawCurveManager : MonoBehaviour {
 	public void Init() {
 		for(var i = 0; i < transform.childCount; i++)
 		{
+			Debug.Log("yolo");
 			PointMesh lPointMesh = transform.GetChild(i).GetComponent<PointMesh>();
 			lPointMesh.Order = transform.GetChild(i).position.y;
 			lPointMesh.Position = new Vector2(transform.GetChild(i).position.x, transform.GetChild(i).position.y);
