@@ -35,7 +35,7 @@ public class GameManager: Singleton<GameManager> {
             yield return false;
         }
         
-        isTouchDevice   = true;
+        isTouchDevice   = false;
         isReady         = true;
 
         MainScreen();
