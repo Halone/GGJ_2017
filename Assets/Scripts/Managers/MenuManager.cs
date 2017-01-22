@@ -5,9 +5,12 @@ using System;
 
 public class MenuManager: BaseManager<MenuManager> {
     #region Variables
-    private const int PLAYER_MAX = 4;
+    private const int PLAYER_MAX        = 4;
+    private const int SHAKE_POWER       = 5;
+    private const int SHAKE_DURATION    = 120;
+    private const int FLIP_DURATION     = 120;
 
-    private class PlayerInstrument {
+    public class PlayerInstrument {
         public bool isJoin;
         public bool isLock;
         public Transform player;
@@ -21,7 +24,7 @@ public class MenuManager: BaseManager<MenuManager> {
 
     private GameObject m_CurrentScreen;
     private List<bool> m_IsInstrumentTaken;
-    private List<PlayerInstrument> m_PlayerList;
+    public List<PlayerInstrument> m_PlayerList;
     private Dictionary<int, int> m_PlayerInstrumentDictionnary;
 
     public GameObject TitleCard;
@@ -66,7 +69,32 @@ public class MenuManager: BaseManager<MenuManager> {
         
     }
 
+    #region Jucy
+    private IEnumerator CoroutineShake(GameObject p_Button, GameObject p_ScreenToOpen) {
+        int l_Timer = 0;
+
+        while (l_Timer++ < SHAKE_DURATION) {
+            p_Button.transform.localPosition = UnityEngine.Random.insideUnitCircle * SHAKE_POWER;
+            yield return false;
+        }
+
+        OpenScreen(p_ScreenToOpen);
+    }
+
+    private IEnumerator CoroutineFlip(GameObject p_Button, int p_PLayerID, bool p_IsJoin) {
+        int l_Timer = 0;
+
+        while (l_Timer++ < FLIP_DURATION) {
+            p_Button.transform.localRotation = Quaternion.Lerp(p_Button.transform.localRotation, Quaternion.Euler(0, 180, 0), l_Timer / FLIP_DURATION);
+            yield return false;
+        }
+
+        SwitchLobbyPlayer(p_PLayerID, p_IsJoin);
+    }
+    #endregion
+
     public void OnClicCredits() {
+        //StartCoroutine(CoroutineShake(TitleCard.transform.Find("BTN_Credits").gameObject, Credits));
         OpenScreen(Credits);
     }
 
@@ -85,10 +113,12 @@ public class MenuManager: BaseManager<MenuManager> {
 
     public void OnClicJoin(int p_PlayerID) {//1 -> 4
         SwitchLobbyPlayer(p_PlayerID - 1, true);
+        //StartCoroutine(CoroutineFlip(m_PlayerList[p_PlayerID - 1].player.Find("BTN_Join").gameObject, p_PlayerID - 1, true));
     }
 
     public void OnClicLeave(int p_PlayerID) {//1 -> 4
         SwitchLobbyPlayer(p_PlayerID - 1, false);
+        //StartCoroutine(CoroutineFlip(m_PlayerList[p_PlayerID - 1].player.Find("Instruments").Find("BTN_Leave").gameObject, p_PlayerID - 1, false));
     }
 
 	public void OnClicCloseApp()
