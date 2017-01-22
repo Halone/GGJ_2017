@@ -78,8 +78,10 @@ public class GeneratePatternesLD : MonoBehaviour
 			ListSpheres.RemoveRange(0, lRandomUniquePoints);
 			ListSpheresSize -= lRandomUniquePoints;
 		}
-		UnityEditor.PrefabUtility.ReplacePrefab(LinesParent, LinesPrefab);
-	}
+        #if UNITY_EDITOR
+        UnityEditor.PrefabUtility.ReplacePrefab(LinesParent, LinesPrefab);
+        #endif
+    }
 
 	public void AddPointInMeshLine(GameObject pLine, GameObject pPoint, bool lCurvePoint)
 	{

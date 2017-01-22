@@ -15,7 +15,7 @@ MonoBehaviour:
   HasPlatforms: 1
   SourceProjectPath: Assets\Resources\Sounds\Concerto\Concerto.fspro
   SourceBankPath: Assets\Resources\Sounds\Concerto\Build
-  AutomaticEventLoading: 1
+  AutomaticEventLoading: 0
   AutomaticSampleLoading: 0
   ImportType: 0
   TargetAssetPath: 
@@ -25,16 +25,34 @@ MonoBehaviour:
   SampleRateSettings:
   - Platform: 2
     Value: 0
+  - Platform: 3
+    Value: 0
+  - Platform: 5
+    Value: 0
+  - Platform: 4
+    Value: 0
   LiveUpdateSettings:
   - Platform: 1
-    Value: 1
+    Value: 0
   - Platform: 2
+    Value: 0
+  - Platform: 4
+    Value: 0
+  - Platform: 3
     Value: 0
   OverlaySettings:
   - Platform: 1
-    Value: 1
+    Value: 0
   - Platform: 2
     Value: 0
+  - Platform: 4
+    Value: 0
+  - Platform: 3
+    Value: 0
+  - Platform: 6
+    Value: 1
+  - Platform: 5
+    Value: 1
   LoggingSettings:
   - Platform: 1
     Value: 1
