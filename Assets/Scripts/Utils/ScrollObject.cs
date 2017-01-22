@@ -9,6 +9,7 @@ public class ScrollObject : MonoBehaviour {
 	private RectTransform myRectTransform;
 	private float		m_scrollCount;
 	public  float		speedOfScroll;
+	public GameObject	myParentPlayer;
 
 	// Use this for initialization
 	void Start () {

@@ -73,6 +73,7 @@ public class InputManager: BaseManager<InputManager> {
 
     private void SetModeDown() {
         if (GameManager.instance.isTouchDevice) {
+
 			for(int i = 0; i < Input.touches.Length; i++)
 			{
 				m_DownStartPosList[i] = Input.touches[i].position;
@@ -153,14 +154,40 @@ public class InputManager: BaseManager<InputManager> {
     }
     #endregion
 
-	private void RaycastFromPos(Vector3 lPos){
+	private void RaycastFromPos(Vector3 lPos)
+	{
 		RaycastHit hit;
 		Ray rayOut = CameraManager.instance.getActiveCamera.ScreenPointToRay(lPos);
-        if(Physics.Raycast(rayOut, out hit)){
-			if(hit.transform.gameObject.tag == WAVE_TAG){
-				
+        if(Physics.Raycast(rayOut, out hit))
+		{
+			if(hit.transform.gameObject.tag == WAVE_TAG)
+			{
+				switch(hit.transform.GetComponentInParent<ScrollObject>().myParentPlayer.name)
+				{
+					case "Player1":
+						LevelManager.instance.AddScoreTo(1);
+						break;
+					case "Player2":
+						LevelManager.instance.AddScoreTo(2);
+						break;
+					case "Player3":
+						LevelManager.instance.AddScoreTo(3);
+						break;
+					case "Player4":
+						LevelManager.instance.AddScoreTo(4);
+						break;
+				}
+
 			}
+				
 		}
+	}
+
+	private void SetActiveParticleOn(int ID)
+	{
+		GameObject lParticle;
+
+
 	}
 
 	private void InputUp() {

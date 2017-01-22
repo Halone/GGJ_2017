@@ -62,11 +62,13 @@ public class MenuManager: BaseManager<MenuManager> {
 
     #region Interface Managment
     protected override void MainScreen() {
+        FMODManager.instance.MenuMusic.Play();
         OpenScreen(TitleCard);
     }
 
     protected override void PlayGame(Dictionary<int, int> p_PlayerInstrumentDictionnary) {
-        
+        FMODManager.instance.MenuMusic.Stop();
+        FMODManager.instance.LevelMusic.Play();
     }
 
     #region Jucy
@@ -98,20 +100,27 @@ public class MenuManager: BaseManager<MenuManager> {
         OpenScreen(Credits);
     }
 
-	public void OnClicScores()
-	{
+	public void OnClicScores() {
+        FMODManager.instance.LevelMusic.Stop();
+        //TODO: qui a gagné ?
+        FMODManager.instance.WinMusic.SetParameter("Win", 0);
+        FMODManager.instance.WinMusic.Play();
 		OpenScreen(Scores);
 	}
 
 	public void OnClicPlay() {
+        FMODManager.instance.BTN_Play.Play();
         OpenScreen(Lobby);
     }
 
     public void OnClicTitleCard() {
+        FMODManager.instance.WinMusic.Stop();
+        FMODManager.instance.BTN_Esc.Play();
         OpenScreen(TitleCard);
     }
 
     public void OnClicJoin(int p_PlayerID) {//1 -> 4
+        FMODManager.instance.BTN_Join.Play();
         SwitchLobbyPlayer(p_PlayerID - 1, true);
         //StartCoroutine(CoroutineFlip(m_PlayerList[p_PlayerID - 1].player.Find("BTN_Join").gameObject, p_PlayerID - 1, true));
     }
@@ -161,6 +170,8 @@ public class MenuManager: BaseManager<MenuManager> {
     }
 
     private void LockInstrument(int p_PlayerID, int p_InstrumentID) {//0 -> 3
+      //  FMODManager.instance.BTN_Instrument.gameObject.GetComponent<FMODUnity.StudioParameterTrigger>().TriggerParameters();
+        FMODManager.instance.BTN_Instrument.Play();
         Transform l_Instruments             = m_PlayerList[p_PlayerID].player.Find("Instruments");
         m_PlayerList[p_PlayerID].isLock     = true;
         m_IsInstrumentTaken[p_InstrumentID] = true;
@@ -183,6 +194,7 @@ public class MenuManager: BaseManager<MenuManager> {
     }
 
     public void OnClicLaunch() {
+        FMODManager.instance.BTN_Launch.Play();
         if (onLaunchGame != null) onLaunchGame(m_PlayerInstrumentDictionnary);
     }
 
