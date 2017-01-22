@@ -26,9 +26,11 @@ public class CreateLD : MonoBehaviour, AudioProcessor.AudioCallbacks
 	void Update() {
 		if(Input.GetKeyDown(KeyCode.H))
 		{
-			Debug.Log("Enregister!");
+            #if UNITY_EDITOR
+            Debug.Log("Enregister!");
 			UnityEditor.PrefabUtility.ReplacePrefab(RawLD, RawLDPrefab);
-		}
+            #endif
+        }
 		m_scrollCount = speedOfScroll * Time.deltaTime;
 		transform.localPosition -= Yincrement;
 		Yincrement = Vector3.left * Random.Range(-20, 20);
