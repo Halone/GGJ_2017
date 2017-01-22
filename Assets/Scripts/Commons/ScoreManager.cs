@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
-{
-	//private Dictionary<, int> m_PlayerInstrumentDictionnary;
+public class ScoreManager : MonoBehaviour {
+
+
 
 	public float scoreP1 = 0;
 	public float scoreP2 = 0;
