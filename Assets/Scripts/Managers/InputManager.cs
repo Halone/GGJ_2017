@@ -185,6 +185,13 @@ public class InputManager: BaseManager<InputManager> {
 		}
 	}
 
+	private void SetActiveParticleOn(int ID)
+	{
+		GameObject lParticle;
+
+
+	}
+
 	private void InputUp() {
         
     }
