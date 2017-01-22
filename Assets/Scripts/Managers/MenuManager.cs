@@ -24,9 +24,9 @@ public class MenuManager: BaseManager<MenuManager> {
 
     private GameObject m_CurrentScreen;
     private List<bool> m_IsInstrumentTaken;
-    public List<PlayerInstrument> m_PlayerList;
     private Dictionary<int, int> m_PlayerInstrumentDictionnary;
 
+    public List<PlayerInstrument> m_PlayerList;
     public GameObject TitleCard;
     public GameObject Lobby;
     public GameObject Scores;
@@ -67,12 +67,39 @@ public class MenuManager: BaseManager<MenuManager> {
     }
 
     protected override void PlayGame(Dictionary<int, int> p_PlayerInstrumentDictionnary) {
+
+		foreach(KeyValuePair<int, int> l_Pair in p_PlayerInstrumentDictionnary)
+		{
+			Sprite spriteGuy = Resources.Load<Sprite>("Graphics/Assets/Anim_" + ReturnAssetName(l_Pair.Value) +"_Normal_01");
+            LevelManager.instance.ReturnPlayer(l_Pair.Key).transform.FindChild("Personnage").GetComponent<SpriteRenderer>().sprite = spriteGuy;
+
+			LevelManager.instance.ReturnPlayer(l_Pair.Key).transform.FindChild("Personnage").GetComponent<Personnage>().IDAnimator = l_Pair.Value;
+			LevelManager.instance.ReturnPlayer(l_Pair.Key).transform.FindChild("Personnage").GetComponent<Personnage>().SetStateGood();
+		}
+
         FMODManager.instance.MenuMusic.Stop();
         FMODManager.instance.LevelMusic.Play();
     }
 
-    #region Jucy
-    private IEnumerator CoroutineShake(GameObject p_Button, GameObject p_ScreenToOpen) {
+	private string ReturnAssetName(int idInstru)
+	{
+		switch(idInstru)
+		{
+			case 0:
+				return "Pierre";
+			case 1:
+				return "Michael";
+			case 2:
+				return "Ashley";
+			case 3:
+				return "Alex";
+			default:
+				return "";
+		}
+	}
+
+	#region Jucy
+	private IEnumerator CoroutineShake(GameObject p_Button, GameObject p_ScreenToOpen) {
         int l_Timer = 0;
 
         while (l_Timer++ < SHAKE_DURATION) {
@@ -102,8 +129,7 @@ public class MenuManager: BaseManager<MenuManager> {
 
 	public void OnClicScores() {
         FMODManager.instance.LevelMusic.Stop();
-        //TODO: qui a gagné ?
-        FMODManager.instance.WinMusic.SetParameter("Win", 0);
+        FMODManager.instance.WinMusic.SetParameter("Win", LevelManager.instance.lastMaxPlayer);
         FMODManager.instance.WinMusic.Play();
 		OpenScreen(Scores);
 	}
@@ -166,11 +192,13 @@ public class MenuManager: BaseManager<MenuManager> {
         playerNB--;
         m_PlayerList[p_PlayerID].player.Find("Instruments").GetChild(m_IsInstrumentTaken.Count).gameObject.SetActive(true);
 
-        UpdateAvailableInstruments();
+		m_PlayerInstrumentDictionnary.Remove(p_PlayerID);
+
+		UpdateAvailableInstruments();
     }
 
     private void LockInstrument(int p_PlayerID, int p_InstrumentID) {//0 -> 3
-      //  FMODManager.instance.BTN_Instrument.gameObject.GetComponent<FMODUnity.StudioParameterTrigger>().TriggerParameters();
+        FMODManager.instance.BTN_Instrument.Params[0].Value = p_InstrumentID + 1;
         FMODManager.instance.BTN_Instrument.Play();
         Transform l_Instruments             = m_PlayerList[p_PlayerID].player.Find("Instruments");
         m_PlayerList[p_PlayerID].isLock     = true;
@@ -181,7 +209,9 @@ public class MenuManager: BaseManager<MenuManager> {
             l_Instruments.GetChild(cptIntrument).gameObject.SetActive(cptIntrument == p_InstrumentID);
         }
 
-        l_Instruments.GetChild(m_IsInstrumentTaken.Count).gameObject.SetActive(false);
+		m_PlayerInstrumentDictionnary.Add(p_PlayerID, p_InstrumentID);
+
+		l_Instruments.GetChild(m_IsInstrumentTaken.Count).gameObject.SetActive(false);
         UpdateAvailableInstruments();
     }
 

@@ -18,12 +18,18 @@ public class LevelManager : BaseManager<LevelManager> {
 	public float scoreP3 = 0;
 	public float scoreP4 = 0;
 
-	private int lastMaxPlayer = -1;
+	public int lastMaxPlayer = -1;
 
 	public GameObject joueurP1;
 	public GameObject joueurP2;
 	public GameObject joueurP3;
 	public GameObject joueurP4;
+
+	public GameObject particleP1;
+	public GameObject particleP2;
+	public GameObject particleP3;
+	public GameObject particleP4;
+
 	public GameObject crown;
 
 	public GameObject winner;
@@ -80,21 +86,24 @@ public class LevelManager : BaseManager<LevelManager> {
 			CurrentTimeGame++;
 		}
 		else
-		{
-			CurrentTimeGame = 0;
+        {
+            DebugLogWarning("ok");
+            SetModeVoid();
+            CurrentTimeGame = 0;
 			CameraManager.instance.SwitchCamera(CameraManager.MENU_CAMERA_NAME);
-			MenuManager.instance.OnClicScores();
+
 			string HeroToReturn = ReturnPlayer(lastMaxPlayer).transform.FindChild("Personnage").GetComponent<SpriteRenderer>().sprite.name;
 			HeroToReturn.Substring(0, HeroToReturn.Length - 4);
+
 			Sprite lSprite = Resources.Load<Sprite>("Graphics/Assets/Win_" + ReturnAssetWinByLastName(HeroToReturn));
 			winner.GetComponent<SpriteRenderer>().sprite = lSprite;
-			SetModeVoid();
-			//On réinitialise tout
-		}
+
+            MenuManager.instance.OnClicScores();
+        }
 	}
 
 	private string ReturnAssetWinByLastName(string name)
-	{
+	{//CHEZ PAS
 		switch(name)
 		{
 			case "chara_Rebel_WIP":
