@@ -170,7 +170,7 @@ public class MenuManager: BaseManager<MenuManager> {
     }
 
     private void LockInstrument(int p_PlayerID, int p_InstrumentID) {//0 -> 3
-        FMODManager.instance.BTN_Instrument.gameObject.GetComponent<FMODUnity.StudioParameterTrigger>().TriggerParameters();
+      //  FMODManager.instance.BTN_Instrument.gameObject.GetComponent<FMODUnity.StudioParameterTrigger>().TriggerParameters();
         FMODManager.instance.BTN_Instrument.Play();
         Transform l_Instruments             = m_PlayerList[p_PlayerID].player.Find("Instruments");
         m_PlayerList[p_PlayerID].isLock     = true;

@@ -70,7 +70,7 @@ public class LevelManager : BaseManager<LevelManager> {
 		doAction = DoActionNormal;
 	}
 
-	private void DoActionNormal() {
+	private void DoActionNormal() { 
 		//Ici on check l'exit + le temps de scroll
 		if(CurrentTimeGame < GameDuration)
 		{

@@ -160,10 +160,8 @@ public class InputManager: BaseManager<InputManager> {
 		Ray rayOut = CameraManager.instance.getActiveCamera.ScreenPointToRay(lPos);
         if(Physics.Raycast(rayOut, out hit))
 		{
-			Debug.LogWarning("hit.transform.gameObject.tag : " + hit.transform.gameObject.tag);
 			if(hit.transform.gameObject.tag == WAVE_TAG)
 			{
-				DebugLogWarning("JE TOUCHE");
 				switch(hit.transform.GetComponentInParent<ScrollObject>().myParentPlayer.name)
 				{
 					case "Player1":
