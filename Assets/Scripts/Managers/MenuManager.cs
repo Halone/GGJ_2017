@@ -75,11 +75,6 @@ public class MenuManager: BaseManager<MenuManager> {
 	
 	private string ReturnAssetName(int idInstru)
 	{
-		//1 - Voix/Synthé - Alex
-		//2 - Batterie - Pierre
-		//3 - Clavier - Hashley
-		//4 - Basse - Michael
-
 		switch(idInstru)
 		{
 			case 0:

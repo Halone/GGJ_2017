@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour {
 
-
-
 	public float scoreP1 = 0;
 	public float scoreP2 = 0;
 	public float scoreP3 = 0;
