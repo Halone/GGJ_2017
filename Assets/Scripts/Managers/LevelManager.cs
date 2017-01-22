@@ -24,6 +24,12 @@ public class LevelManager : BaseManager<LevelManager> {
 	public GameObject joueurP2;
 	public GameObject joueurP3;
 	public GameObject joueurP4;
+
+	public GameObject particleP1;
+	public GameObject particleP2;
+	public GameObject particleP3;
+	public GameObject particleP4;
+
 	public GameObject crown;
 
 	public GameObject winner;
@@ -97,7 +103,7 @@ public class LevelManager : BaseManager<LevelManager> {
 	}
 
 	private string ReturnAssetWinByLastName(string name)
-	{
+	{//CHEZ PAS
 		switch(name)
 		{
 			case "chara_Rebel_WIP":
