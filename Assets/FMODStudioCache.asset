@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114481036155618248}
-  - {fileID: 114951196947531508}
+  - {fileID: 114786441828807928}
   EditorEvents:
   - {fileID: 114481237640981164}
   - {fileID: 114474300433582296}
@@ -23,9 +23,9 @@ MonoBehaviour:
   - {fileID: 114252476927121200}
   - {fileID: 114528556913366808}
   - {fileID: 114314447970827136}
-  MasterBankRef: {fileID: 114951196947531508}
+  MasterBankRef: {fileID: 114786441828807928}
   StringsBankRef: {fileID: 114481036155618248}
-  stringsBankWriteTime: 636206814957103858
+  stringsBankWriteTime: 636206605011489468
   cacheVersion: 2
 --- !u!114 &114004368645015250
 MonoBehaviour:
@@ -98,17 +98,32 @@ MonoBehaviour:
   Path: event:/LionLion/Music
   guid: 268d7bd8f04f5e418171fc0b2ef04e81
   Banks:
-  - {fileID: 114951196947531508}
+  - {fileID: 114786441828807928}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 114866925543971608}
-  - {fileID: 114015793009412338}
-  - {fileID: 114900680987337710}
-  - {fileID: 114551260972585974}
+  - {fileID: 114026767175283132}
+  - {fileID: 114162981335829344}
+  - {fileID: 114749302160102012}
+  - {fileID: 114402570348668894}
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &114026767175283132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Acc_Drum
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &114032820704409152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +139,36 @@ MonoBehaviour:
   Min: 0
   Max: 5
   Default: 0
+--- !u!114 &114155316317232254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Choice
+  Min: 0
+  Max: 5
+  Default: 0
+--- !u!114 &114162981335829344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Acc_Lead
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &114248695035240248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,14 +204,29 @@ MonoBehaviour:
   Path: event:/LionLion/MusicWin
   guid: 5e2ec1e9eb614549af98fde51dfd856e
   Banks:
-  - {fileID: 114951196947531508}
+  - {fileID: 114786441828807928}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114767908232409010}
+  - {fileID: 114298683922136032}
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &114298683922136032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Win
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &114314447970827136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +241,7 @@ MonoBehaviour:
   Path: event:/LionLion/Btn_Join
   guid: 9eadd6b4f3ba02488c41e5a1739abfb0
   Banks:
-  - {fileID: 114951196947531508}
+  - {fileID: 114786441828807928}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -202,13 +262,28 @@ MonoBehaviour:
   Path: event:/LionLion/Btn_Launch
   guid: 3d4a211ecaf5504d9fa756a463ab294e
   Banks:
-  - {fileID: 114951196947531508}
+  - {fileID: 114786441828807928}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &114402570348668894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Acc_Keys
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &114468554411987102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +298,7 @@ MonoBehaviour:
   Path: event:/LionLion/Btn_Play
   guid: 4d5e78e749b66a46990d7ab1f2e0f866
   Banks:
-  - {fileID: 114951196947531508}
+  - {fileID: 114786441828807928}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -244,7 +319,7 @@ MonoBehaviour:
   Path: event:/LionLion/Btn_Esc
   guid: 20639e1f92759c40b25bc2d0b283d206
   Banks:
-  - {fileID: 114951196947531508}
+  - {fileID: 114786441828807928}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -263,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Resources\Sounds\Concerto\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636206814957103858
+  lastModified: 636206605011489468
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -285,12 +360,12 @@ MonoBehaviour:
   Path: event:/LionLion/Player_Selec
   guid: 1245218b1661824ea1dca2f70e488c4a
   Banks:
-  - {fileID: 114951196947531508}
+  - {fileID: 114786441828807928}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 114032820704409152}
+  - {fileID: 114155316317232254}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114528556913366808
@@ -307,7 +382,7 @@ MonoBehaviour:
   Path: event:/LionLion/MenuMusic
   guid: 708b627b27514f4dab88bb603bc7a3a8
   Banks:
-  - {fileID: 114951196947531508}
+  - {fileID: 114786441828807928}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -392,6 +467,21 @@ MonoBehaviour:
   - Name: Mobile
     Value: 15896096
   Exists: 1
+--- !u!114 &114749302160102012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Acc_Bass
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &114767908232409010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +497,27 @@ MonoBehaviour:
   Min: 0
   Max: 3
   Default: 0
+--- !u!114 &114786441828807928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\nicol_000\Desktop\Projets\GGJ_2017\Concerto\Assets\Resources\Sounds\Concerto\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636206605011449253
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 12846976
+  - Name: Mobile
+    Value: 15896096
+  Exists: 1
 --- !u!114 &114866925543971608
 MonoBehaviour:
   m_ObjectHideFlags: 0

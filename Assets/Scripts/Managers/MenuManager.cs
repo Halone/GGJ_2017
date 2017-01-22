@@ -24,9 +24,9 @@ public class MenuManager: BaseManager<MenuManager> {
 
     private GameObject m_CurrentScreen;
     private List<bool> m_IsInstrumentTaken;
-    public List<PlayerInstrument> m_PlayerList;
     private Dictionary<int, int> m_PlayerInstrumentDictionnary;
 
+    public List<PlayerInstrument> m_PlayerList;
     public GameObject TitleCard;
     public GameObject Lobby;
     public GameObject Scores;
@@ -102,8 +102,7 @@ public class MenuManager: BaseManager<MenuManager> {
 
 	public void OnClicScores() {
         FMODManager.instance.LevelMusic.Stop();
-        //TODO: qui a gagné ?
-        FMODManager.instance.WinMusic.SetParameter("Win", 0);
+        FMODManager.instance.WinMusic.SetParameter("Win", LevelManager.instance.lastMaxPlayer);
         FMODManager.instance.WinMusic.Play();
 		OpenScreen(Scores);
 	}
@@ -170,7 +169,7 @@ public class MenuManager: BaseManager<MenuManager> {
     }
 
     private void LockInstrument(int p_PlayerID, int p_InstrumentID) {//0 -> 3
-      //  FMODManager.instance.BTN_Instrument.gameObject.GetComponent<FMODUnity.StudioParameterTrigger>().TriggerParameters();
+        FMODManager.instance.BTN_Instrument.Params[0].Value = p_InstrumentID + 1;
         FMODManager.instance.BTN_Instrument.Play();
         Transform l_Instruments             = m_PlayerList[p_PlayerID].player.Find("Instruments");
         m_PlayerList[p_PlayerID].isLock     = true;

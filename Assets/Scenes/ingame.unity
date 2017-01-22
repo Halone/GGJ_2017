@@ -223,6 +223,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114049071931401120, guid: acd96b0045f46d347bdbc57f07f20f52,
+        type: 2}
+      propertyPath: Params.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4321548822197818, guid: acd96b0045f46d347bdbc57f07f20f52, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -294,6 +299,16 @@ Prefab:
         type: 2}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049071931401120, guid: acd96b0045f46d347bdbc57f07f20f52,
+        type: 2}
+      propertyPath: Params.Array.data[0].Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049071931401120, guid: acd96b0045f46d347bdbc57f07f20f52,
+        type: 2}
+      propertyPath: Params.Array.data[0].Name
+      value: Choice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: acd96b0045f46d347bdbc57f07f20f52, type: 2}
