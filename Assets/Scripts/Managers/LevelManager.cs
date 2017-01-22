@@ -100,7 +100,7 @@ public class LevelManager : BaseManager<LevelManager> {
 	}
 
 	private string ReturnAssetWinByLastName(string name)
-	{
+	{//CHEZ PAS
 		switch(name)
 		{
 			case "chara_Rebel_WIP":
