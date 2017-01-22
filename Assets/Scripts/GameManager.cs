@@ -20,7 +20,8 @@ public class GameManager: Singleton<GameManager> {
                 LevelManager.instance == null ||
                 InputManager.instance == null ||
                 SoundsManager.instance == null ||
-                CameraManager.instance == null
+                CameraManager.instance == null ||
+                FMODManager.instance == null
         ) {
             yield return false;
         }
@@ -30,7 +31,8 @@ public class GameManager: Singleton<GameManager> {
                 !LevelManager.instance.isReady ||
                 !InputManager.instance.isReady ||
                 !SoundsManager.instance.isReady ||
-                !CameraManager.instance.isReady
+                !CameraManager.instance.isReady ||
+                !FMODManager.instance.isReady
         ) {
             yield return false;
         }

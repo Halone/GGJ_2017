@@ -62,12 +62,13 @@ public class MenuManager: BaseManager<MenuManager> {
 
     #region Interface Managment
     protected override void MainScreen() {
-        FMODManager.MenuMusic.Play();
+        FMODManager.instance.MenuMusic.Play();
         OpenScreen(TitleCard);
     }
 
     protected override void PlayGame(Dictionary<int, int> p_PlayerInstrumentDictionnary) {
-        FMODManager.MenuMusic.Stop();
+        FMODManager.instance.MenuMusic.Stop();
+        FMODManager.instance.LevelMusic.Play();
     }
 
     #region Jucy
@@ -100,23 +101,26 @@ public class MenuManager: BaseManager<MenuManager> {
     }
 
 	public void OnClicScores() {
-        //Stop Ingame
-        FMODManager.WinMusic.Play();
+        FMODManager.instance.LevelMusic.Stop();
+        //TODO: qui a gagné ?
+        FMODManager.instance.WinMusic.SetParameter("Win", 0);
+        FMODManager.instance.WinMusic.Play();
 		OpenScreen(Scores);
 	}
 
 	public void OnClicPlay() {
-        FMODManager.BTN_Play.Play();
+        FMODManager.instance.BTN_Play.Play();
         OpenScreen(Lobby);
     }
 
     public void OnClicTitleCard() {
-        FMODManager.WinMusic.Stop();
+        FMODManager.instance.WinMusic.Stop();
+        FMODManager.instance.BTN_Esc.Play();
         OpenScreen(TitleCard);
     }
 
     public void OnClicJoin(int p_PlayerID) {//1 -> 4
-        FMODManager.BTN_Join.Play();
+        FMODManager.instance.BTN_Join.Play();
         SwitchLobbyPlayer(p_PlayerID - 1, true);
         //StartCoroutine(CoroutineFlip(m_PlayerList[p_PlayerID - 1].player.Find("BTN_Join").gameObject, p_PlayerID - 1, true));
     }
@@ -166,6 +170,8 @@ public class MenuManager: BaseManager<MenuManager> {
     }
 
     private void LockInstrument(int p_PlayerID, int p_InstrumentID) {//0 -> 3
+        FMODManager.instance.BTN_Instrument.gameObject.GetComponent<FMODUnity.StudioParameterTrigger>().TriggerParameters();
+        FMODManager.instance.BTN_Instrument.Play();
         Transform l_Instruments             = m_PlayerList[p_PlayerID].player.Find("Instruments");
         m_PlayerList[p_PlayerID].isLock     = true;
         m_IsInstrumentTaken[p_InstrumentID] = true;
@@ -188,7 +194,7 @@ public class MenuManager: BaseManager<MenuManager> {
     }
 
     public void OnClicLaunch() {
-        FMODManager.BTN_Launch.Play();
+        FMODManager.instance.BTN_Launch.Play();
         if (onLaunchGame != null) onLaunchGame(m_PlayerInstrumentDictionnary);
     }
 
