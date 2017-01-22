@@ -23,6 +23,7 @@ public class LevelManager: BaseManager<LevelManager> {
 
     #region Initialisation & Destroy
     override protected IEnumerator CoroutineStart() {
+        SetModeVoid();
         isReady = true;
 
         yield return true;
@@ -30,69 +31,38 @@ public class LevelManager: BaseManager<LevelManager> {
     #endregion
 
     #region Level Managment
-    private void LoadLevel(int p_LevelID) {
-        currentLevelID = p_LevelID;
-    }
-
-    public void CloseLevel() {
-        CameraManager.instance.SwitchCamera(CameraManager.MENU_CAMERA_NAME);
-        DestroyLevel();
-    }
-
-    public void DestroyLevel() {
-        if (onDestroyLevel != null) onDestroyLevel();
-    }
-
-	protected override void PlayGame(Dictionary<int, int> p_PlayerInstrumentDictionnary)
-	{
-		base.PlayGame(p_PlayerInstrumentDictionnary);
+	protected override void PlayGame(Dictionary<int, int> p_PlayerInstrumentDictionnary){
 		SetModeNormal();
 	}
 
-	protected override void Start()
-	{
-		base.Start();
-		SetModeVoid();
-	}
-
-	void Update()
-	{
+	void Update() {
 		doAction();
 	}
 
-	private void DoActionVoid()
-	{
+    public void SetModeVoid() {
+        doAction = DoActionVoid;
+    }
+
+    private void DoActionVoid() {
+
 	}
 
-	private void DoActionNormal()
-	{
+    public void SetModeNormal() {
+        doAction = DoActionNormal;
+    }
+
+    private void DoActionNormal() {
 		//Ici on check l'exit + le temps de scroll
-		if(CurrentTimeGame < GameDuration)
-		{
+		if (CurrentTimeGame < GameDuration) {
 			CurrentTimeGame += Time.deltaTime;
 		}
-		else
-		{
-			IsOnPlay = false;
+		else {
 			CurrentTimeGame = 0;
 			CameraManager.instance.SwitchCamera(CameraManager.MENU_CAMERA_NAME);
 			MenuManager.instance.OnClicScores();
 			SetModeVoid();
 			//On réinitialise tout
 		}
-		
 	}
-
-	public void SetModeNormal()
-	{
-		IsOnPlay = true;
-		doAction = DoActionNormal;
-	}
-
-	public void SetModeVoid()
-	{
-		doAction = DoActionVoid;
-	}
-	#endregion
+    #endregion
 }
-//TODO: refacto (CloseLevel) en event

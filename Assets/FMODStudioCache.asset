@@ -13,12 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114481036155618248}
-  - {fileID: 114248695035240248}
+  - {fileID: 114335367104070374}
   EditorEvents:
   - {fileID: 114019654758772466}
-  MasterBankRef: {fileID: 114248695035240248}
+  MasterBankRef: {fileID: 114335367104070374}
   StringsBankRef: {fileID: 114481036155618248}
-  stringsBankWriteTime: 636206081876219588
+  stringsBankWriteTime: 636206081878040870
   cacheVersion: 2
 --- !u!114 &114004368645015250
 MonoBehaviour:
@@ -55,7 +55,7 @@ MonoBehaviour:
   Path: event:/Music
   guid: 268d7bd8f04f5e418171fc0b2ef04e81
   Banks:
-  - {fileID: 114248695035240248}
+  - {fileID: 114335367104070374}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -83,6 +83,27 @@ MonoBehaviour:
   - Name: Mobile
     Value: 15896096
   Exists: 1
+--- !u!114 &114335367104070374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\nicol_000\Desktop\Projets\GGJ_2017\Concerto\Assets\Resources\Sounds\Concerto\Build\Mobile\Master
+    Bank.bank
+  lastModified: 636206081877910792
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 5714528
+  - Name: Mobile
+    Value: 15896096
+  Exists: 1
 --- !u!114 &114481036155618248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets\Resources\Sounds\Concerto\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636206081876219588
+  Path: Assets\Resources\Sounds\Concerto\Build\Mobile\Master Bank.strings.bank
+  lastModified: 636206081878040870
   LoadResult: 0
   FileSizes:
   - Name: Desktop
