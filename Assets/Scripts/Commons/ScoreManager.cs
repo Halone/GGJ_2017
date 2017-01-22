@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour {
-
+public class ScoreManager : MonoBehaviour
+{
 	//private Dictionary<, int> m_PlayerInstrumentDictionnary;
 
 	public float scoreP1 = 0;

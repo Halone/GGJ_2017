@@ -162,7 +162,26 @@ public class InputManager: BaseManager<InputManager> {
 		{
 			Debug.LogWarning("hit.transform.gameObject.tag : " + hit.transform.gameObject.tag);
 			if(hit.transform.gameObject.tag == WAVE_TAG)
+			{
 				DebugLogWarning("JE TOUCHE");
+				switch(hit.transform.GetComponentInParent<ScrollObject>().myParentPlayer.name)
+				{
+					case "Player1":
+						LevelManager.instance.AddScoreTo(1);
+						break;
+					case "Player2":
+						LevelManager.instance.AddScoreTo(2);
+						break;
+					case "Player3":
+						LevelManager.instance.AddScoreTo(3);
+						break;
+					case "Player4":
+						LevelManager.instance.AddScoreTo(4);
+						break;
+				}
+
+			}
+				
 		}
 	}
 

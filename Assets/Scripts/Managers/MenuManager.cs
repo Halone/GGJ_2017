@@ -65,8 +65,38 @@ public class MenuManager: BaseManager<MenuManager> {
     }
 
     protected override void PlayGame(Dictionary<int, int> p_PlayerInstrumentDictionnary) {
-        
+		Debug.LogWarning("yolo");
+		foreach(KeyValuePair<int, int> l_Pair in p_PlayerInstrumentDictionnary)
+		{
+			Debug.LogWarning("j'passe");
+            Sprite spriteGuy = Resources.Load<Sprite>("Graphics/Assets/chara_" + ReturnAssetName(l_Pair.Value));
+			Debug.LogWarning("spriteguy : " + spriteGuy);
+			Debug.LogWarning("spriteguy name : " + ReturnAssetName(l_Pair.Value));
+			LevelManager.instance.ReturnPlayer(l_Pair.Key).transform.FindChild("Personnage").GetComponent<SpriteRenderer>().sprite = spriteGuy;
+        }
     }
+
+	private string ReturnAssetName(int idInstru)
+	{
+		//1 - Voix/Synthé - Alex
+		//2 - Batterie - Pierre
+		//3 - Clavier - Hashley
+		//4 - Basse - Michael
+
+		switch(idInstru)
+		{
+			case 0:
+				return "Rebel_WIP";
+			case 1:
+				return "Stoned_WIP";
+			case 2:
+				return "Nerd_WIP";
+			case 3:
+				return "BG_WIP";
+			default:
+				return "";
+		}
+	}
 
     private IEnumerator CoroutineShake(GameObject p_Button, GameObject p_ScreenToOpen) {
         int l_Timer = 0;
