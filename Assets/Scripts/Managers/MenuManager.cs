@@ -153,7 +153,7 @@ public class MenuManager: BaseManager<MenuManager> {
 
         l_Instruments.gameObject.SetActive(p_IsJoin);
         m_PlayerList[p_PlayerID].player.Find("BTN_Join").gameObject.SetActive(!p_IsJoin);
-        if (p_IsJoin) ActivatePlayerAvailableInstruments(l_Instruments);
+        if (p_IsJoin) ActivatePlayerAvailableInstruments(l_Instruments.transform);
     }
 
     private void ActivatePlayerAvailableInstruments(Transform p_Instruments) {

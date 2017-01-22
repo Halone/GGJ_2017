@@ -182,6 +182,8 @@ public class LevelManager: BaseManager<LevelManager> {
 		//crown.transform.rotation = LookAt(-ReturnPlayer(max).GetComponentInChildren<ScrollObject>().transform.up);
 		//crown.transform.right = ReturnPlayer(max).transform.FindChild("Personnage").transform.position - crown.transform.position;
 
+
+
 		Vector3 dir = ReturnPlayer(max).transform.FindChild("Personnage").transform.position - crown.transform.position;
 		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 270;
 		crown.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
