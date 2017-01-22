@@ -153,16 +153,12 @@ public class InputManager: BaseManager<InputManager> {
     }
     #endregion
 
-	private void RaycastFromPos(Vector3 lPos)
-	{
+	private void RaycastFromPos(Vector3 lPos){
 		RaycastHit hit;
 		Ray rayOut = CameraManager.instance.getActiveCamera.ScreenPointToRay(lPos);
-        if(Physics.Raycast(rayOut, out hit))
-		{
-			Debug.LogWarning("hit.transform.gameObject.tag : " + hit.transform.gameObject.tag);
-			if(hit.transform.gameObject.tag == WAVE_TAG)
-			{
-				DebugConsole.Log("et ce truc est une wave");
+        if(Physics.Raycast(rayOut, out hit)){
+			if(hit.transform.gameObject.tag == WAVE_TAG){
+				
 			}
 		}
 	}
