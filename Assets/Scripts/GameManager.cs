@@ -52,8 +52,7 @@ public class GameManager: Singleton<GameManager> {
 
     private void PlayGame(Dictionary<int, int> p_PlayerInstrumentDictionnary) {
         if (onPlayGame != null) onPlayGame(p_PlayerInstrumentDictionnary);
-		HUDManager.instance.SetPlayers(p_PlayerInstrumentDictionnary);
     }
-	#endregion
+    #endregion
 }
 //TODO: récupérer si le device est en touch ou non

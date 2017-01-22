@@ -36,7 +36,7 @@ public class DrawCurveManager : MonoBehaviour {
 			{
 				// Solo click
 				GameObject lObject = Instantiate(PrefabCircle, LinesParent.transform);
-				lObject.transform.localPosition = PointList[j].Position;
+				lObject.transform.position = PointList[j].Position;
 
 			}
 			else if(!PointList[j].IsMain && StateInLine)

@@ -73,7 +73,6 @@ public class InputManager: BaseManager<InputManager> {
 
     private void SetModeDown() {
         if (GameManager.instance.isTouchDevice) {
-
 			for(int i = 0; i < Input.touches.Length; i++)
 			{
 				m_DownStartPosList[i] = Input.touches[i].position;
@@ -162,7 +161,9 @@ public class InputManager: BaseManager<InputManager> {
 		{
 			Debug.LogWarning("hit.transform.gameObject.tag : " + hit.transform.gameObject.tag);
 			if(hit.transform.gameObject.tag == WAVE_TAG)
-				DebugLogWarning("JE TOUCHE");
+			{
+				DebugConsole.Log("et ce truc est une wave");
+			}
 		}
 	}
 

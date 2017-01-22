@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class LevelManager: BaseManager<LevelManager> {
     #region Variables
@@ -68,7 +69,7 @@ public class LevelManager: BaseManager<LevelManager> {
 		//Ici on check l'exit + le temps de scroll
 		if(CurrentTimeGame < GameDuration)
 		{
-			CurrentTimeGame++;
+			CurrentTimeGame += Time.deltaTime;
 		}
 		else
 		{

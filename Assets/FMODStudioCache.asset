@@ -13,12 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114481036155618248}
-  - {fileID: 114393373455913630}
+  - {fileID: 114682212762900086}
   EditorEvents:
   - {fileID: 114019654758772466}
-  MasterBankRef: {fileID: 114393373455913630}
+  MasterBankRef: {fileID: 114682212762900086}
   StringsBankRef: {fileID: 114481036155618248}
-  stringsBankWriteTime: 636206123883141044
+  stringsBankWriteTime: 636206123884601958
   cacheVersion: 2
 --- !u!114 &114004368645015250
 MonoBehaviour:
@@ -55,7 +55,7 @@ MonoBehaviour:
   Path: event:/Music
   guid: 268d7bd8f04f5e418171fc0b2ef04e81
   Banks:
-  - {fileID: 114393373455913630}
+  - {fileID: 114682212762900086}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
     Value: 5714528
   - Name: Mobile
     Value: 15896096
-  Exists: 1
+  Exists: 0
 --- !u!114 &114481036155618248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets\Resources\Sounds\Concerto\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636206123883141044
+  Path: Assets\Resources\Sounds\Concerto\Build\Mobile\Master Bank.strings.bank
+  lastModified: 636206123884601958
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -138,6 +138,27 @@ MonoBehaviour:
   Path: C:\Users\nicol_000\Desktop\Projets\GGJ_2017\Concerto\Assets\Resources\Sounds\Concerto\Build\Desktop\Master
     Bank.bank
   lastModified: 636206081876159545
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 5714528
+  - Name: Mobile
+    Value: 15896096
+  Exists: 1
+--- !u!114 &114682212762900086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\SVN\3eme annee\Concerto\Assets\Resources\Sounds\Concerto\Build\Mobile\Master
+    Bank.bank
+  lastModified: 636206123884577034
   LoadResult: 0
   FileSizes:
   - Name: Desktop

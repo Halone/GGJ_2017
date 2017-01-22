@@ -7,7 +7,7 @@ public class MenuManager: BaseManager<MenuManager> {
     #region Variables
     private const int PLAYER_MAX = 4;
 
-    private class PlayerInstrument {
+    public class PlayerInstrument {
         public bool isJoin;
         public bool isLock;
         public Transform player;
@@ -21,7 +21,7 @@ public class MenuManager: BaseManager<MenuManager> {
 
     private GameObject m_CurrentScreen;
     private List<bool> m_IsInstrumentTaken;
-    private List<PlayerInstrument> m_PlayerList;
+    public List<PlayerInstrument> m_PlayerList;
     private Dictionary<int, int> m_PlayerInstrumentDictionnary;
 
     public GameObject TitleCard;
@@ -154,10 +154,9 @@ public class MenuManager: BaseManager<MenuManager> {
 
     public void OnClicLaunch() {
         if (onLaunchGame != null) onLaunchGame(m_PlayerInstrumentDictionnary);
-		HUDManager.instance.SetPlayers(m_PlayerInstrumentDictionnary);
     }
 
-	private void OpenScreen(GameObject p_ScreenToOpen) {
+    private void OpenScreen(GameObject p_ScreenToOpen) {
         CloseCurrentScreen();
         p_ScreenToOpen.SetActive(true);
         m_CurrentScreen = p_ScreenToOpen;
@@ -166,5 +165,5 @@ public class MenuManager: BaseManager<MenuManager> {
     private void CloseCurrentScreen() {
         if (m_CurrentScreen != null) m_CurrentScreen.SetActive(false);
     }
-	#endregion
+    #endregion
 }
