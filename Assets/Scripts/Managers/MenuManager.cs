@@ -177,7 +177,7 @@ public class MenuManager: BaseManager<MenuManager> {
 
         if (m_PlayerList[l_PlayerID].isLock) UnLockInstrument(l_PlayerID, l_InstrumentID);//unlock
         else LockInstrument(l_PlayerID, l_InstrumentID);//lock
-
+		
         BTN_Launch.SetActive(playerNB > 0);
     }
 
@@ -186,6 +186,7 @@ public class MenuManager: BaseManager<MenuManager> {
         m_IsInstrumentTaken[p_InstrumentID] = false;
         playerNB--;
         m_PlayerList[p_PlayerID].player.Find("Instruments").GetChild(m_IsInstrumentTaken.Count).gameObject.SetActive(true);
+		m_PlayerInstrumentDictionnary.Remove(p_PlayerID);
 
         UpdateAvailableInstruments();
     }
@@ -202,7 +203,8 @@ public class MenuManager: BaseManager<MenuManager> {
 
         l_Instruments.GetChild(m_IsInstrumentTaken.Count).gameObject.SetActive(false);
         UpdateAvailableInstruments();
-    }
+		m_PlayerInstrumentDictionnary.Add(p_PlayerID, p_InstrumentID);
+	}
 
     private void UpdateAvailableInstruments() {
         for (int cptPlayer = 0; cptPlayer < m_PlayerList.Count; cptPlayer++) {
