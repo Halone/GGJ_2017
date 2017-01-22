@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsOnPlay: 0
-  GameDuration: 5000
+  GameDuration: 500
   CurrentTimeGame: 0
   scoreP1: 0
   scoreP2: 0
@@ -641,6 +641,7 @@ MonoBehaviour:
   joueurP3: {fileID: 1121821777}
   joueurP4: {fileID: 269307455}
   crown: {fileID: 617525155}
+  winner: {fileID: 1846959817}
 --- !u!1 &123416428
 GameObject:
   m_ObjectHideFlags: 0

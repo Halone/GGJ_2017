@@ -26,6 +26,8 @@ public class LevelManager: BaseManager<LevelManager> {
 	public GameObject joueurP4;
 	public GameObject crown;
 
+	public GameObject winner;
+
 	DoAction doAction;
     
     public int currentLevelID {
@@ -91,10 +93,34 @@ public class LevelManager: BaseManager<LevelManager> {
 			CurrentTimeGame = 0;
 			CameraManager.instance.SwitchCamera(CameraManager.MENU_CAMERA_NAME);
 			MenuManager.instance.OnClicScores();
-			SetModeVoid();
+			string HeroToReturn = ReturnPlayer(lastMaxPlayer).transform.FindChild("Personnage").GetComponent<SpriteRenderer>().sprite.name;
+			HeroToReturn.Substring(0, HeroToReturn.Length - 4);
+			Debug.LogWarning("HeroToReturn : " + HeroToReturn);
+            Sprite lSprite = Resources.Load<Sprite>("Graphics/Assets/Win_" + ReturnAssetWinByLastName(HeroToReturn));
+			winner.GetComponent<SpriteRenderer>().sprite = lSprite;
+            SetModeVoid();
 			//On réinitialise tout
 		}
 		
+
+
+	}
+
+	private string ReturnAssetWinByLastName(string name)
+	{
+		switch(name)
+		{
+			case "chara_Rebel_WIP":
+                return "Alex";
+			case "chara_Stoned_WIP":
+                return "Pierre";
+			case "chara_Nerd_WIP":
+                return "Ashley";
+			case "chara_BG_WIP":
+                return "Michael";
+			default:
+				return "";
+		}
 	}
 
 	public void AddScoreTo(int pX)
@@ -150,6 +176,8 @@ public class LevelManager: BaseManager<LevelManager> {
 
 		if(lastMaxPlayer == max)
 			return;
+
+		lastMaxPlayer = max;
 
 		//crown.transform.rotation = LookAt(-ReturnPlayer(max).GetComponentInChildren<ScrollObject>().transform.up);
 		//crown.transform.right = ReturnPlayer(max).transform.FindChild("Personnage").transform.position - crown.transform.position;
