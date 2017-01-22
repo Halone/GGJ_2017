@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{9e918b1a-48b7-4395-b989-4fca9abdde5c}">
+        <property name="assetPath">
+            <value>Btn_Esc_Norm.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.37497916666666664</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{f3d4ea58-e91b-4e74-9cf7-3936cb7bdea8}</destination>
+        </relationship>
+    </object>
+</objects>

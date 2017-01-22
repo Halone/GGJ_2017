@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{3472dcac-fafb-4840-b709-09a011435152}">
+        <property name="assetPath">
+            <value>WinLead.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>7.1325416666666666</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{f3d4ea58-e91b-4e74-9cf7-3936cb7bdea8}</destination>
+        </relationship>
+    </object>
+</objects>
