@@ -91,50 +91,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &644409971 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1320328935348544, guid: acd96b0045f46d347bdbc57f07f20f52,
-    type: 2}
-  m_PrefabInternal: {fileID: 1965724069}
---- !u!95 &644409976
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 644409971}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 83c90d8aa374c064e9734282f1eefd74, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!1 &800643374 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1081706218262116, guid: acd96b0045f46d347bdbc57f07f20f52,
-    type: 2}
-  m_PrefabInternal: {fileID: 1965724069}
---- !u!95 &800643376
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 800643374}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 83c90d8aa374c064e9734282f1eefd74, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &859152612
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,28 +216,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1958734169 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1948619270529330, guid: acd96b0045f46d347bdbc57f07f20f52,
-    type: 2}
-  m_PrefabInternal: {fileID: 1965724069}
---- !u!95 &1958734173
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1958734169}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 83c90d8aa374c064e9734282f1eefd74, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1965724069
 Prefab:
   m_ObjectHideFlags: 0
@@ -321,32 +255,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 64922914087566496, guid: acd96b0045f46d347bdbc57f07f20f52,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 64661909123735888, guid: acd96b0045f46d347bdbc57f07f20f52,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 64980167360150496, guid: acd96b0045f46d347bdbc57f07f20f52,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 64412539700106942, guid: acd96b0045f46d347bdbc57f07f20f52,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 64757653138756772, guid: acd96b0045f46d347bdbc57f07f20f52,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 64153974901682388, guid: acd96b0045f46d347bdbc57f07f20f52,
+    - target: {fileID: 64700957174308756, guid: acd96b0045f46d347bdbc57f07f20f52,
         type: 2}
       propertyPath: m_Mesh
       value: 
@@ -356,42 +265,36 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 64700957174308756, guid: acd96b0045f46d347bdbc57f07f20f52,
+    - target: {fileID: 64153974901682388, guid: acd96b0045f46d347bdbc57f07f20f52,
         type: 2}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 111575556731228810, guid: acd96b0045f46d347bdbc57f07f20f52,
+    - target: {fileID: 64757653138756772, guid: acd96b0045f46d347bdbc57f07f20f52,
         type: 2}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 111555313130107408, guid: acd96b0045f46d347bdbc57f07f20f52, type: 2}
-    - {fileID: 111575556731228810, guid: acd96b0045f46d347bdbc57f07f20f52, type: 2}
-    - {fileID: 111927752121156704, guid: acd96b0045f46d347bdbc57f07f20f52, type: 2}
-    - {fileID: 111357318973300300, guid: acd96b0045f46d347bdbc57f07f20f52, type: 2}
+    - target: {fileID: 64412539700106942, guid: acd96b0045f46d347bdbc57f07f20f52,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 64980167360150496, guid: acd96b0045f46d347bdbc57f07f20f52,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 64661909123735888, guid: acd96b0045f46d347bdbc57f07f20f52,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 64922914087566496, guid: acd96b0045f46d347bdbc57f07f20f52,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: acd96b0045f46d347bdbc57f07f20f52, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2078544454 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1319515837332482, guid: acd96b0045f46d347bdbc57f07f20f52,
-    type: 2}
-  m_PrefabInternal: {fileID: 1965724069}
---- !u!95 &2078544456
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2078544454}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 83c90d8aa374c064e9734282f1eefd74, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
