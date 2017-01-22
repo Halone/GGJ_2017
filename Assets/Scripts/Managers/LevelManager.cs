@@ -27,6 +27,10 @@ public class LevelManager: BaseManager<LevelManager> {
 	public GameObject crown;
 
 	public GameObject winner;
+	public GameObject disk;
+
+	private const int AMPLITUDE = 5;
+	private Vector3 decalageZ = new Vector3(1, 1, -10);
 
 	DoAction doAction;
     
@@ -84,7 +88,9 @@ public class LevelManager: BaseManager<LevelManager> {
 		//Ici on check l'exit + le temps de scroll
 		if(CurrentTimeGame < GameDuration)
 		{
-			SetCrownOnBestPlayer();
+			Vector2 decalage = UnityEngine.Random.insideUnitCircle * AMPLITUDE;
+            disk.transform.localPosition = new Vector3(decalage.x, decalage.y, disk.transform.localPosition.z);
+            SetCrownOnBestPlayer();
 			CurrentTimeGame++;
 		}
 		else
