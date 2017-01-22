@@ -208,6 +208,9 @@
         <property name="length">
             <value>2.4925208333333333</value>
         </property>
+        <property name="volume">
+            <value>2.5</value>
+        </property>
         <relationship name="audioFile">
             <destination>{b3aa6104-f7c6-43ab-810e-5d53ab590e61}</destination>
         </relationship>
@@ -365,7 +368,7 @@
             <value>1.000043998327641</value>
         </property>
         <property name="value">
-            <value>0</value>
+            <value>5.20695782</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{7e9fe6a9-4bf7-48a7-afe0-d3c767d6bde3}">
@@ -397,7 +400,7 @@
             <value>1.9958891871165645</value>
         </property>
         <property name="value">
-            <value>0</value>
+            <value>5.20695782</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{21cbcfbb-cb11-424f-8e07-247245faa79a}">
@@ -413,7 +416,7 @@
             <value>2.0019075027101199</value>
         </property>
         <property name="value">
-            <value>9.24808121</value>
+            <value>10</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{902d7282-abda-4515-ad8c-b695fda8e1c4}">
@@ -421,7 +424,7 @@
             <value>2.9948293691830408</value>
         </property>
         <property name="value">
-            <value>9.24808121</value>
+            <value>10</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{45605bba-1b9a-4c9a-bb78-f340684082da}">
@@ -437,7 +440,7 @@
             <value>2.9998527769488899</value>
         </property>
         <property name="value">
-            <value>0</value>
+            <value>4.00869656</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{7d718da6-fb60-4c86-9128-bae4c398aaa2}">
@@ -453,7 +456,7 @@
             <value>3.948824109749022</value>
         </property>
         <property name="value">
-            <value>0</value>
+            <value>4.00869656</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{af76ce52-148b-4435-b0ff-02c9851cbea5}">
