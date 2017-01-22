@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class HUDManager: BaseManager<HUDManager> {
     #region Variables
@@ -17,6 +18,10 @@ public class HUDManager: BaseManager<HUDManager> {
     #region HUD Managment
     public void SwitchHUD(bool p_SetActive) {
         Hud.SetActive(p_SetActive);
+    }
+
+    protected override void PlayGame(Dictionary<int, int> p_PlayerInstrumentDictionnary) {
+        
     }
     #endregion
 }
