@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager: BaseManager<LevelManager> {
-    #region Variables
-    public Action onDestroyLevel;
+public class LevelManager : BaseManager<LevelManager> {
+	#region Variables
+	public Action onDestroyLevel;
 
 	public bool IsOnPlay;
 
@@ -33,83 +33,64 @@ public class LevelManager: BaseManager<LevelManager> {
 	private Vector3 decalageZ = new Vector3(1, 1, -10);
 
 	DoAction doAction;
-    
-    public int currentLevelID {
-        get;
-        private set;
-     }
-    #endregion
 
-    #region Initialisation & Destroy
-    override protected IEnumerator CoroutineStart() {
-        isReady = true;
+	public int currentLevelID {
+		get;
+		private set;
+	}
+	#endregion
 
-        yield return true;
-    }
-    #endregion
+	#region Initialisation & Destroy
+	override protected IEnumerator CoroutineStart() {
+		SetModeVoid();
+		isReady = true;
 
-    #region Level Managment
-    private void LoadLevel(int p_LevelID) {
-        currentLevelID = p_LevelID;
-    }
+		yield return true;
+	}
+	#endregion
 
-    public void CloseLevel() {
-        CameraManager.instance.SwitchCamera(CameraManager.MENU_CAMERA_NAME);
-        DestroyLevel();
-    }
-
-    public void DestroyLevel() {
-        if (onDestroyLevel != null) onDestroyLevel();
-    }
-
-	protected override void PlayGame(Dictionary<int, int> p_PlayerInstrumentDictionnary)
-	{
-		base.PlayGame(p_PlayerInstrumentDictionnary);
+	#region Level Managment
+	protected override void PlayGame(Dictionary<int, int> p_PlayerInstrumentDictionnary) {
 		SetModeNormal();
 	}
 
-	protected override void Start()
-	{
-		base.Start();
-		SetModeVoid();
-	}
-
-	void Update()
-	{
+	void Update() {
 		doAction();
 	}
 
-	private void DoActionVoid()
-	{
+	public void SetModeVoid() {
+		doAction = DoActionVoid;
 	}
 
-	private void DoActionNormal()
-	{
+	private void DoActionVoid() {
+
+	}
+
+	public void SetModeNormal() {
+		doAction = DoActionNormal;
+	}
+
+	private void DoActionNormal() {
 		//Ici on check l'exit + le temps de scroll
 		if(CurrentTimeGame < GameDuration)
 		{
 			Vector2 decalage = UnityEngine.Random.insideUnitCircle * AMPLITUDE;
-            disk.transform.localPosition = new Vector3(decalage.x, decalage.y, disk.transform.localPosition.z);
-            SetCrownOnBestPlayer();
+			disk.transform.localPosition = new Vector3(decalage.x, decalage.y, disk.transform.localPosition.z);
+			SetCrownOnBestPlayer();
 			CurrentTimeGame++;
 		}
 		else
 		{
-			IsOnPlay = false;
 			CurrentTimeGame = 0;
 			CameraManager.instance.SwitchCamera(CameraManager.MENU_CAMERA_NAME);
 			MenuManager.instance.OnClicScores();
 			string HeroToReturn = ReturnPlayer(lastMaxPlayer).transform.FindChild("Personnage").GetComponent<SpriteRenderer>().sprite.name;
 			HeroToReturn.Substring(0, HeroToReturn.Length - 4);
-			Debug.LogWarning("HeroToReturn : " + HeroToReturn);
-            Sprite lSprite = Resources.Load<Sprite>("Graphics/Assets/Win_" + ReturnAssetWinByLastName(HeroToReturn));
+			Sprite lSprite = Resources.Load<Sprite>("Graphics/Assets/Win_" + ReturnAssetWinByLastName(HeroToReturn));
 			winner.GetComponent<SpriteRenderer>().sprite = lSprite;
-            SetModeVoid();
+			SetModeVoid();
 			//On réinitialise tout
 		}
-		
-
-
 	}
 
 	private string ReturnAssetWinByLastName(string name)
@@ -117,13 +98,13 @@ public class LevelManager: BaseManager<LevelManager> {
 		switch(name)
 		{
 			case "chara_Rebel_WIP":
-                return "Alex";
+				return "Alex";
 			case "chara_Stoned_WIP":
-                return "Pierre";
+				return "Pierre";
 			case "chara_Nerd_WIP":
-                return "Ashley";
+				return "Ashley";
 			case "chara_BG_WIP":
-                return "Michael";
+				return "Michael";
 			default:
 				return "";
 		}
@@ -194,17 +175,5 @@ public class LevelManager: BaseManager<LevelManager> {
 		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 270;
 		crown.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 	}
-
-	public void SetModeNormal()
-	{
-		IsOnPlay = true;
-		doAction = DoActionNormal;
-	}
-
-	public void SetModeVoid()
-	{
-		doAction = DoActionVoid;
-	}
-	#endregion
+    #endregion
 }
-//TODO: refacto (CloseLevel) en event

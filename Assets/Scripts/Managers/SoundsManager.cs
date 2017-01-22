@@ -36,8 +36,8 @@ public class SoundsManager: BaseManager<SoundsManager>{
 
     #region Initialisation
     override protected IEnumerator CoroutineStart() {
-        LoadSFX();
-        LoadMusics();
+        //LoadSFX();
+        //LoadMusics();
         isReady = true;
 
         yield return true;

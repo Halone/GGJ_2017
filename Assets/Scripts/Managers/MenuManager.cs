@@ -62,6 +62,7 @@ public class MenuManager: BaseManager<MenuManager> {
 
     #region Interface Managment
     protected override void MainScreen() {
+        FMODManager.MenuMusic.Play();
         OpenScreen(TitleCard);
     }
 
@@ -71,6 +72,7 @@ public class MenuManager: BaseManager<MenuManager> {
             Sprite spriteGuy = Resources.Load<Sprite>("Graphics/Assets/chara_" + ReturnAssetName(l_Pair.Value));
 			LevelManager.instance.ReturnPlayer(l_Pair.Key).transform.FindChild("Personnage").GetComponent<SpriteRenderer>().sprite = spriteGuy;
         }
+        FMODManager.MenuMusic.Stop();
     }
 	
 	private string ReturnAssetName(int idInstru)
@@ -119,20 +121,24 @@ public class MenuManager: BaseManager<MenuManager> {
         OpenScreen(Credits);
     }
 
-	public void OnClicScores()
-	{
+	public void OnClicScores() {
+        //Stop Ingame
+        FMODManager.WinMusic.Play();
 		OpenScreen(Scores);
 	}
 
 	public void OnClicPlay() {
+        FMODManager.BTN_Play.Play();
         OpenScreen(Lobby);
     }
 
     public void OnClicTitleCard() {
+        FMODManager.WinMusic.Stop();
         OpenScreen(TitleCard);
     }
 
     public void OnClicJoin(int p_PlayerID) {//1 -> 4
+        FMODManager.BTN_Join.Play();
         SwitchLobbyPlayer(p_PlayerID - 1, true);
         //StartCoroutine(CoroutineFlip(m_PlayerList[p_PlayerID - 1].player.Find("BTN_Join").gameObject, p_PlayerID - 1, true));
     }
@@ -206,6 +212,7 @@ public class MenuManager: BaseManager<MenuManager> {
     }
 
     public void OnClicLaunch() {
+        FMODManager.BTN_Launch.Play();
         if (onLaunchGame != null) onLaunchGame(m_PlayerInstrumentDictionnary);
     }
 

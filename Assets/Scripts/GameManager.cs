@@ -18,7 +18,6 @@ public class GameManager: Singleton<GameManager> {
         while (HUDManager.instance == null ||
                 MenuManager.instance == null ||
                 LevelManager.instance == null ||
-                DataManager.instance == null ||
                 InputManager.instance == null ||
                 SoundsManager.instance == null ||
                 CameraManager.instance == null
@@ -29,7 +28,6 @@ public class GameManager: Singleton<GameManager> {
         while (!HUDManager.instance.isReady ||
                 !MenuManager.instance.isReady ||
                 !LevelManager.instance.isReady ||
-                !DataManager.instance.isReady ||
                 !InputManager.instance.isReady ||
                 !SoundsManager.instance.isReady ||
                 !CameraManager.instance.isReady
