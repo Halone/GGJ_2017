@@ -160,21 +160,30 @@ public class InputManager: BaseManager<InputManager> {
 		Ray rayOut = CameraManager.instance.getActiveCamera.ScreenPointToRay(lPos);
         if(Physics.Raycast(rayOut, out hit))
 		{
-			if(hit.transform.gameObject.tag == WAVE_TAG)
+            if(hit.transform.gameObject.tag == WAVE_TAG)
 			{
-				switch(hit.transform.GetComponentInParent<ScrollObject>().myParentPlayer.name)
+				if(GetParticle(1).activeInHierarchy) GetParticle(1).SetActive(false);
+				if(GetParticle(2).activeInHierarchy)GetParticle(2).SetActive(false);
+				if(GetParticle(3).activeInHierarchy)GetParticle(3).SetActive(false);
+				if(GetParticle(4).activeInHierarchy) GetParticle(4).SetActive(false);
+
+                switch(hit.transform.GetComponentInParent<ScrollObject>().myParentPlayer.name)
 				{
 					case "Player1":
 						LevelManager.instance.AddScoreTo(1);
+						GetParticle(1).transform.position = hit.point;
 						break;
 					case "Player2":
 						LevelManager.instance.AddScoreTo(2);
+						GetParticle(2).transform.position = hit.point;
 						break;
 					case "Player3":
 						LevelManager.instance.AddScoreTo(3);
+						GetParticle(3).transform.position = hit.point;
 						break;
 					case "Player4":
 						LevelManager.instance.AddScoreTo(4);
+						GetParticle(4).transform.position = hit.point;
 						break;
 				}
 
@@ -183,10 +192,30 @@ public class InputManager: BaseManager<InputManager> {
 		}
 	}
 
-	private void SetActiveParticleOn(int ID)
+	private GameObject GetParticle(int ID)
 	{
-		GameObject lParticle;
+		GameObject lParticle = null;
+		switch(ID)
+		{
+			case 1:
+				lParticle = LevelManager.instance.particleP1;
+				break;
+			case 2:
+				lParticle = LevelManager.instance.particleP2;
+				break;
+			case 3:
+				lParticle = LevelManager.instance.particleP3;
+				break;
+			case 4:
+				lParticle = LevelManager.instance.particleP4;
+                break;
+		}
+		return lParticle;
 
+	}
+
+	private void SetPosParticleActive(GameObject pParticle)
+	{
 
 	}
 
